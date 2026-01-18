@@ -2,7 +2,7 @@
  * Welcome email template
  */
 
-export function getWelcomeEmailHtml(userName?: string, userEmail?: string): string {
+export function getWelcomeEmailHtml(userName?: string): string {
   return `
 <!DOCTYPE html>
 <html>

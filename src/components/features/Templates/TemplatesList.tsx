@@ -1,12 +1,11 @@
 'use client'
 
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/Tabs'
 import { Download, Star, Trash2, Edit } from 'lucide-react'
 import Link from 'next/link'
-import Image from 'next/image'
 
 export interface Template {
   id: string
@@ -77,8 +76,8 @@ export const TemplatesList: React.FC<TemplatesListProps> = ({
   }
 
   const renderTemplateCard = (template: Template, isOwn: boolean = false) => (
-    <Card key={template.id} variant="elevated">
-      <Card.Body>
+    <Card key={template.id}>
+      <CardContent>
         <div className="aspect-video bg-gray-100 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
           {template.thumbnail_url ? (
             <img
@@ -157,7 +156,7 @@ export const TemplatesList: React.FC<TemplatesListProps> = ({
             </>
           )}
         </div>
-      </Card.Body>
+      </CardContent>
     </Card>
   )
 
@@ -175,14 +174,14 @@ export const TemplatesList: React.FC<TemplatesListProps> = ({
       <TabsContent value="my-templates">
         {userTemplates.length === 0 ? (
           <Card>
-            <Card.Body className="text-center py-12">
+            <CardContent className="text-center py-12">
               <p className="text-[var(--color-text-secondary)] mb-4">
                 You haven't created any templates yet.
               </p>
               <Link href="/editor">
                 <Button variant="primary">Create Your First Template</Button>
               </Link>
-            </Card.Body>
+            </CardContent>
           </Card>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
@@ -194,11 +193,11 @@ export const TemplatesList: React.FC<TemplatesListProps> = ({
       <TabsContent value="public-templates">
         {publicTemplates.length === 0 ? (
           <Card>
-            <Card.Body className="text-center py-12">
+            <CardContent className="text-center py-12">
               <p className="text-[var(--color-text-secondary)]">
                 No public templates available yet.
               </p>
-            </Card.Body>
+            </CardContent>
           </Card>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">

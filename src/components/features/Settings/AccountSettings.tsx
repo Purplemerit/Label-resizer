@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Card } from '@/components/ui/card'
+import { Card, CardHeader, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useRouter } from 'next/navigation'
@@ -159,12 +159,12 @@ export const AccountSettings: React.FC<AccountSettingsProps> = ({
     <div className="space-y-6">
       {/* Profile Information */}
       <Card>
-        <Card.Header>
+        <CardHeader>
           <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
             Profile Information
           </h2>
-        </Card.Header>
-        <Card.Body>
+        </CardHeader>
+        <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-[var(--color-text-primary)] mb-2">
@@ -225,17 +225,17 @@ export const AccountSettings: React.FC<AccountSettingsProps> = ({
               Save Changes
             </Button>
           </form>
-        </Card.Body>
+        </CardContent>
       </Card>
 
       {/* Change Password */}
       <Card>
-        <Card.Header>
+        <CardHeader>
           <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
             Change Password
           </h2>
-        </Card.Header>
-        <Card.Body>
+        </CardHeader>
+        <CardContent>
           <form
             onSubmit={async (e) => {
               e.preventDefault()
@@ -250,15 +250,15 @@ export const AccountSettings: React.FC<AccountSettingsProps> = ({
               Change Password
             </Button>
           </form>
-        </Card.Body>
+        </CardContent>
       </Card>
 
       {/* Data Export (GDPR) */}
       <Card>
-        <Card.Header>
+        <CardHeader>
           <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">Data Export</h2>
-        </Card.Header>
-        <Card.Body>
+        </CardHeader>
+        <CardContent>
           <div className="space-y-4">
             <div>
               <h3 className="font-medium text-[var(--color-text-primary)] mb-2">
@@ -272,15 +272,15 @@ export const AccountSettings: React.FC<AccountSettingsProps> = ({
               </Button>
             </div>
           </div>
-        </Card.Body>
+        </CardContent>
       </Card>
 
       {/* Danger Zone */}
       <Card className="border-red-200">
-        <Card.Header>
+        <CardHeader>
           <h2 className="text-xl font-semibold text-red-600">Danger Zone</h2>
-        </Card.Header>
-        <Card.Body>
+        </CardHeader>
+        <CardContent>
           <div className="space-y-4">
             <div>
               <h3 className="font-medium text-[var(--color-text-primary)] mb-2">
@@ -294,7 +294,7 @@ export const AccountSettings: React.FC<AccountSettingsProps> = ({
               </Button>
             </div>
           </div>
-        </Card.Body>
+        </CardContent>
       </Card>
     </div>
   )

@@ -1,10 +1,10 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Loader2 } from 'lucide-react'
-import { Users, UserPlus, Mail, Crown, Shield, User, X } from 'lucide-react'
+import { Spinner } from '@/components/ui/Spinner'
+import { Users, UserPlus, Mail, Crown, User, X } from 'lucide-react'
 import { supabase } from '@/lib/supabase/client'
 import { useToast } from '@/components/ui/Toast'
 import { InviteMemberModal } from './InviteMemberModal'
@@ -166,29 +166,29 @@ export const TeamMemberList: React.FC = () => {
 
       {!canAddMore && (
         <Card className="border-yellow-200 bg-yellow-50">
-          <Card.Body>
+          <CardContent>
             <p className="text-sm text-yellow-800">
               You've reached your team member limit. Upgrade to Enterprise for unlimited team members.
             </p>
-          </Card.Body>
+          </CardContent>
         </Card>
       )}
 
       {/* Team Members List */}
       {members.length === 0 ? (
         <Card>
-          <Card.Body className="text-center py-12">
+          <CardContent className="text-center py-12">
             <Users size={48} className="mx-auto text-gray-400 mb-4" />
             <p className="text-[var(--color-text-secondary)] mb-4">
               No team members yet. Invite your first team member to get started.
             </p>
-          </Card.Body>
+          </CardContent>
         </Card>
       ) : (
         <div className="space-y-3">
           {members.map((member) => (
             <Card key={member.id}>
-              <Card.Body>
+              <CardContent>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4 flex-1">
                     <div
@@ -255,7 +255,7 @@ export const TeamMemberList: React.FC = () => {
                     </Button>
                   </div>
                 </div>
-              </Card.Body>
+              </CardContent>
             </Card>
           ))}
         </div>

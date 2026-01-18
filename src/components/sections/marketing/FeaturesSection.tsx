@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Zap, Shield, BarChart3, Users, Printer, Code } from 'lucide-react'
 
 export interface FeaturesSectionProps {
@@ -76,8 +76,8 @@ export const FeaturesSection: React.FC<FeaturesSectionProps> = ({ className }) =
           {features.map((feature, index) => {
             const Icon = feature.icon
             return (
-              <Card key={index} variant="elevated">
-                <Card.Body>
+              <Card key={index}>
+                <CardContent>
                   <div
                     className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
                     style={{ backgroundColor: feature.bgColor }}
@@ -88,7 +88,7 @@ export const FeaturesSection: React.FC<FeaturesSectionProps> = ({ className }) =
                     {feature.title}
                   </h3>
                   <p className="text-[var(--color-text-secondary)]">{feature.description}</p>
-                </Card.Body>
+                </CardContent>
               </Card>
             )
           })}

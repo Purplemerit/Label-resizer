@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Checkbox } from '@/components/ui/checkbox'
 import { OAuthButtons } from '@/components/features/Auth/OAuthButtons'
-import { cn } from '@/lib/utils/cn'
 import {
   validateEmail,
   validatePassword,
@@ -41,9 +40,6 @@ export const SignupForm: React.FC<SignupFormProps> = ({
     companyName: '',
     acceptTerms: false,
   })
-  const [passwordStrength, setPasswordStrength] = useState<'weak' | 'medium' | 'strong' | null>(
-    null
-  )
 
   // Get referral code from URL if not provided as prop
   const [referralCode, setReferralCode] = useState<string | null>(initialReferralCode || null)
@@ -69,13 +65,16 @@ export const SignupForm: React.FC<SignupFormProps> = ({
       })
     }
 
-    // Validate password strength in real-time
+    // Validate password in real-time
     if (field === 'password' && typeof value === 'string') {
       const validation = validatePassword(value)
-      if (validation.valid && validation.strength) {
-        setPasswordStrength(validation.strength)
+      if (!validation.valid) {
+        setErrors(prev => ({ ...prev, password: validation.error! }))
       } else {
-        setPasswordStrength(null)
+        setErrors(prev => {
+          const { password, ...rest } = prev
+          return rest
+        })
       }
     }
   }
@@ -194,19 +193,6 @@ export const SignupForm: React.FC<SignupFormProps> = ({
     }
   }
 
-  const getPasswordStrengthColor = () => {
-    switch (passwordStrength) {
-      case 'weak':
-        return 'bg-red-500'
-      case 'medium':
-        return 'bg-yellow-500'
-      case 'strong':
-        return 'bg-green-500'
-      default:
-        return 'bg-gray-200'
-    }
-  }
-
   return (
     <div>
       <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-2">
@@ -279,28 +265,6 @@ export const SignupForm: React.FC<SignupFormProps> = ({
             required
             disabled={loading}
           />
-          {passwordStrength && (
-            <div className="mt-2">
-              <div className="flex items-center gap-2">
-                <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
-                  <div
-                    className={cn('h-full transition-all', getPasswordStrengthColor())}
-                    style={{
-                      width:
-                        passwordStrength === 'weak'
-                          ? '33%'
-                          : passwordStrength === 'medium'
-                            ? '66%'
-                            : '100%',
-                    }}
-                  />
-                </div>
-                <span className="text-xs text-[var(--color-text-secondary)] capitalize">
-                  {passwordStrength}
-                </span>
-              </div>
-            </div>
-          )}
         </div>
 
         {/* Terms Acceptance */}
@@ -318,8 +282,7 @@ export const SignupForm: React.FC<SignupFormProps> = ({
             </>
           }
           checked={formData.acceptTerms}
-          onChange={(e) => handleInputChange('acceptTerms', e.target.checked)}
-          error={errors.acceptTerms}
+          onChange={(checked) => handleInputChange('acceptTerms', checked)}
           disabled={loading}
         />
 

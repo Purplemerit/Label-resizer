@@ -3,7 +3,7 @@
  * Enforces limits and restrictions per plan
  */
 
-export type SubscriptionTier = 'free' | 'pro' | 'enterprise'
+import { SubscriptionTier } from '@/lib/constants/pricing'
 
 export interface FeatureLimits {
   labelsPerMonth: number | 'unlimited'
@@ -63,7 +63,6 @@ export function getFeatureLimits(tier: SubscriptionTier): FeatureLimits {
  * Check if user has access to a specific feature
  */
 export async function checkFeatureAccess(
-  userId: string,
   feature: string,
   tier: SubscriptionTier
 ): Promise<boolean> {

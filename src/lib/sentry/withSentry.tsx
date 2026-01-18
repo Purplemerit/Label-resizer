@@ -43,7 +43,7 @@ export function useSentryUser() {
     setupUserContext()
 
     // Listen for auth state changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
       if (session?.user) {
         await setUserContext(session.user.id, session.user.email || undefined, {
           email: session.user.email,

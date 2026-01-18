@@ -4438,7 +4438,7 @@ export function getCategories(): string[] {
  * Get unique marketplaces
  */
 export function getMarketplaces(): string[] {
-  return Array.from(new Set(ALL_LABELS.map((label) => label.marketplace).filter(Boolean)))
+  return Array.from(new Set(ALL_LABELS.map((label) => label.marketplace).filter((marketplace): marketplace is string => marketplace !== undefined)))
 }
 
 /**

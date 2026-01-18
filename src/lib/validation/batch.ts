@@ -115,7 +115,10 @@ export function validateBatchJobInput(input: unknown): {
       const csvHeaders = validated.csv_data.length > 0 ? Object.keys(validated.csv_data[0]) : []
       const mappingCheck = validateColumnMapping(validated.column_mapping, csvHeaders)
       if (!mappingCheck.valid) {
-        return mappingCheck
+        return {
+          valid: false,
+          error: mappingCheck.error
+        }
       }
     }
 

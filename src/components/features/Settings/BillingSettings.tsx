@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Card } from '@/components/ui/card'
+import { Card, CardHeader, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { ProfileData } from './SettingsTabs'
@@ -26,12 +26,12 @@ export const BillingSettings: React.FC<BillingSettingsProps> = ({
     <div className="space-y-6">
       {/* Current Plan */}
       <Card>
-        <Card.Header>
+        <CardHeader>
           <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
             Current Plan
           </h2>
-        </Card.Header>
-        <Card.Body>
+        </CardHeader>
+        <CardContent>
           <div className="flex items-center justify-between mb-6">
             <div>
               <div className="flex items-center gap-3 mb-2">
@@ -39,8 +39,8 @@ export const BillingSettings: React.FC<BillingSettingsProps> = ({
                   {tier === 'free' ? 'Starter' : tier === 'pro' ? 'Professional' : 'Enterprise'}
                 </h3>
                 <Badge
-                  variant={status === 'active' ? 'success' : 'error'}
-                  className="text-xs"
+                  variant={status === 'active' ? 'default' : 'destructive'}
+                  className={`text-xs ${status === 'active' ? 'bg-green-100 text-green-800' : ''}`}
                 >
                   {status === 'active' ? 'Active' : 'Inactive'}
                 </Badge>
@@ -144,7 +144,7 @@ export const BillingSettings: React.FC<BillingSettingsProps> = ({
               </Link>
             </div>
           )}
-        </Card.Body>
+        </CardContent>
       </Card>
     </div>
   )

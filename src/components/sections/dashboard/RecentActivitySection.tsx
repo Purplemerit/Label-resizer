@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import Link from 'next/link'
 import { format } from 'date-fns'
 
@@ -41,11 +41,11 @@ export const RecentActivitySection: React.FC<RecentActivitySectionProps> = ({
   }
 
   return (
-    <Card variant="elevated" className={className}>
-      <Card.Header>
+    <Card className={className}>
+      <CardHeader>
         <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">Recent Activity</h2>
-      </Card.Header>
-      <Card.Body>
+      </CardHeader>
+      <CardContent>
         {activities.length === 0 ? (
           <div className="text-center py-8">
             <p className="text-[var(--color-text-secondary)]">No recent activity</p>
@@ -88,7 +88,7 @@ export const RecentActivitySection: React.FC<RecentActivitySectionProps> = ({
             })}
           </div>
         )}
-      </Card.Body>
+      </CardContent>
     </Card>
   )
 }

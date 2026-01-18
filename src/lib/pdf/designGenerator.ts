@@ -4,8 +4,7 @@
  */
 
 import PDFDocument from 'pdfkit'
-import { StreamBuffers } from 'stream-buffers'
-import JsBarcode from 'jsbarcode'
+import { WritableStreamBuffer } from 'stream-buffers'
 import { EditorElement } from '@/types/editor'
 
 export interface DesignPDFOptions {
@@ -20,7 +19,7 @@ export interface DesignPDFOptions {
  * Generate PDF from label design
  */
 export async function generateDesignPDF(options: DesignPDFOptions): Promise<Buffer> {
-  const { elements, width_px, height_px, dpi, format = 'pdf' } = options
+  const { elements, width_px, height_px, dpi } = options
 
   // Convert pixels to points (1 inch = 72 points)
   // At 300 DPI: 300px = 1 inch = 72 points, so 1px = 72/300 = 0.24 points
@@ -30,7 +29,7 @@ export async function generateDesignPDF(options: DesignPDFOptions): Promise<Buff
   const height_pt = height_px * pxToPoints
 
   return new Promise((resolve, reject) => {
-    const writeStream = new StreamBuffers.WritableStreamBuffer({
+    const writeStream = new WritableStreamBuffer({
       initialSize: 100 * 1024, // 100KB
       incrementAmount: 10 * 1024, // 10KB
     })
@@ -102,9 +101,8 @@ function renderTextElement(
 ) {
   if (element.type !== 'text') return
 
-  const fontSize = (element.fontSize || 16) * pxToPoints
+  const fontSize = (element.properties.fontSize || 16) * pxToPoints
   const width = (element.width || 200) * pxToPoints
-  const height = (element.height || 50) * pxToPoints
   const rotation = element.rotation || 0
 
   doc.save()
@@ -114,21 +112,21 @@ function renderTextElement(
   }
 
   // Set font
-  const fontFamily = element.fontFamily || 'Helvetica'
-  const fontWeight = element.fontWeight || 'normal'
-  const font = fontWeight === 'bold' ? `${fontFamily}-Bold` : fontFamily
+  const fontFamily = element.properties.font || 'Helvetica'
+  const fontWeight = element.properties.fontWeight || 400
+  const font = fontWeight >= 600 ? `${fontFamily}-Bold` : fontFamily
   doc.font(font).fontSize(fontSize)
 
   // Set color
-  if (element.color) {
-    const color = hexToRgb(element.color)
+  if (element.properties.color) {
+    const color = hexToRgb(element.properties.color)
     if (color) {
       doc.fillColor(`rgb(${color.r}, ${color.g}, ${color.b})`)
     }
   }
 
   // Alignment
-  const align = element.textAlign || 'left'
+  const align = element.properties.align || 'left'
   let textX = 0
   if (align === 'center') {
     textX = width / 2
@@ -137,11 +135,11 @@ function renderTextElement(
   }
 
   // Render text
-  if (element.content) {
-    doc.text(element.content, textX, 0, {
+  if (element.properties.text) {
+    doc.text(element.properties.text, textX, 0, {
       width: width,
       align: align as 'left' | 'center' | 'right' | 'justify',
-      lineGap: (element.lineHeight || 1.2) * fontSize - fontSize,
+      lineGap: (element.properties.lineHeight || 1.2) * fontSize - fontSize,
     })
   }
 
@@ -158,7 +156,7 @@ async function renderImageElement(
   y: number,
   pxToPoints: number
 ) {
-  if (element.type !== 'image' || !element.src) return
+  if (element.type !== 'image' || !element.properties.image_url) return
 
   try {
     const width = (element.width || 100) * pxToPoints
@@ -172,28 +170,26 @@ async function renderImageElement(
     }
 
     // If src is a URL, fetch it
-    if (element.src.startsWith('http') || element.src.startsWith('https')) {
-      const response = await fetch(element.src)
+    if (element.properties.image_url.startsWith('http') || element.properties.image_url.startsWith('https')) {
+      const response = await fetch(element.properties.image_url)
       const arrayBuffer = await response.arrayBuffer()
       const buffer = Buffer.from(arrayBuffer)
       doc.image(buffer, -width / 2, -height / 2, {
         width: width,
         height: height,
-        opacity: element.opacity !== undefined ? element.opacity : 1,
       })
-    } else if (element.src.startsWith('data:')) {
+    } else if (element.properties.image_url.startsWith('data:')) {
       // Base64 data URL
-      const base64Data = element.src.split(',')[1]
+      const base64Data = element.properties.image_url.split(',')[1]
       const buffer = Buffer.from(base64Data, 'base64')
       doc.image(buffer, -width / 2, -height / 2, {
         width: width,
         height: height,
-        opacity: element.opacity !== undefined ? element.opacity : 1,
       })
     } else {
       // Assume it's a file path in Supabase Storage
       // This would need to be fetched first
-      console.warn('Image path not fully supported:', element.src)
+      console.warn('Image path not fully supported:', element.properties.image_url)
     }
 
     doc.restore()
@@ -211,15 +207,12 @@ function renderBarcodeElement(
   element: EditorElement,
   x: number,
   y: number,
-  pxToPoints: number,
-  dpi: number
+  _pxToPoints: number,
+  _dpi: number
 ) {
-  if (element.type !== 'barcode' || !element.value) return
+  if (element.type !== 'barcode' || !element.properties?.barcode_value) return
 
   try {
-    const width = (element.width || 200) * pxToPoints
-    const height = (element.height || 50) * pxToPoints
-
     // Generate barcode as canvas/image
     // For now, we'll use a placeholder approach
     // In production, you'd generate the barcode image first
@@ -229,7 +222,7 @@ function renderBarcodeElement(
     // For now, render as text placeholder
     doc.save()
     doc.fontSize(10)
-    doc.text(element.value || 'BARCODE', x, y)
+    doc.text(element.properties?.barcode_value || 'BARCODE', x, y)
     doc.restore()
 
     // TODO: Implement actual barcode image generation
@@ -262,15 +255,15 @@ function renderShapeElement(
   }
 
   // Set colors
-  const fillColor = element.fillColor
-    ? hexToRgb(element.fillColor)
+  const fillColor = element.properties?.fill_color
+    ? hexToRgb(element.properties.fill_color)
     : null
-  const strokeColor = element.strokeColor
-    ? hexToRgb(element.strokeColor)
+  const strokeColor = element.properties?.border_color
+    ? hexToRgb(element.properties.border_color)
     : null
-  const strokeWidth = (element.strokeWidth || 1) * pxToPoints
+  const strokeWidth = (element.properties?.border_width || 1) * pxToPoints
 
-  switch (element.shapeType) {
+  switch (element.properties?.shape_type) {
     case 'rectangle':
       if (fillColor) {
         doc.rect(-width / 2, -height / 2, width, height)

@@ -79,8 +79,12 @@ export const InviteMemberModal: React.FC<InviteMemberModalProps> = ({
   }
 
   return (
-    <Dialog open={open} onClose={onClose} title="Invite Team Member" size="md">
-      <div className="space-y-6">
+    <Dialog open={open} onOpenChange={(isOpen) => !isOpen && onClose()}>
+      <DialogContent className="sm:max-w-md">
+        <DialogHeader>
+          <DialogTitle>Invite Team Member</DialogTitle>
+        </DialogHeader>
+        <div className="space-y-6">
         <div>
           <p className="text-sm text-[var(--color-text-secondary)] mb-4">
             Invite a team member to collaborate on labels. They'll receive an email invitation to join your team.
@@ -136,8 +140,7 @@ export const InviteMemberModal: React.FC<InviteMemberModalProps> = ({
             Send Invitation
           </Button>
         </div>
-      </div>
-    </Dialog>
+      </div>      </DialogContent>    </Dialog>
   )
 }
 

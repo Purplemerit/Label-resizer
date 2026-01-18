@@ -4,14 +4,6 @@ const requiredEnvVars = [
   'NEXT_PUBLIC_APP_URL',
 ] as const
 
-const optionalEnvVars = [
-  'SUPABASE_SERVICE_ROLE_KEY',
-  'DATABASE_URL',
-  'NEXT_PUBLIC_SENTRY_DSN',
-  'GOOGLE_CLIENT_ID',
-  'GOOGLE_CLIENT_SECRET',
-] as const
-
 export function validateEnv() {
   const missing: string[] = []
   

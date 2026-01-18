@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Card } from '@/components/ui/card'
 import { AccountSettings } from './AccountSettings'
 import { BillingSettings } from './BillingSettings'
 import { NotificationSettings } from './NotificationSettings'
@@ -73,6 +72,9 @@ export const SettingsTabs: React.FC<SettingsTabsProps> = ({
         )}
         {activeTab === 'referrals' && (
           <ReferralSettings />
+        )}
+        {activeTab === 'sessions' && (
+          <SessionsSettings />
         )}
       </div>
     </div>

@@ -30,7 +30,7 @@ export async function securityMiddleware(request: NextRequest): Promise<NextResp
           status: 429,
           headers: {
             'Retry-After': String(Math.ceil((limit.resetAt - Date.now()) / 1000)),
-            ...response.headers.toJSON(),
+            ...Object.fromEntries(response.headers.entries()),
           },
         }
       )
@@ -49,7 +49,7 @@ export async function securityMiddleware(request: NextRequest): Promise<NextResp
           status: 429,
           headers: {
             'Retry-After': String(Math.ceil((limit.resetAt - Date.now()) / 1000)),
-            ...response.headers.toJSON(),
+            ...Object.fromEntries(response.headers.entries()),
           },
         }
       )
@@ -68,7 +68,7 @@ export async function securityMiddleware(request: NextRequest): Promise<NextResp
           status: 429,
           headers: {
             'Retry-After': String(Math.ceil((limit.resetAt - Date.now()) / 1000)),
-            ...response.headers.toJSON(),
+            ...Object.fromEntries(response.headers.entries()),
           },
         }
       )

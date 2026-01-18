@@ -70,7 +70,7 @@ export async function sendWelcomeEmail(
     const result = await sendEmail({
       to: email,
       subject: 'Welcome to LabelPro! 🎉',
-      html: getWelcomeEmailHtml(userName, email),
+      html: getWelcomeEmailHtml(userName),
       text: getWelcomeEmailText(userName),
     })
 
@@ -129,7 +129,7 @@ export async function sendTeamInvitationEmail(
     const result = await sendEmail({
       to: email,
       subject: `${inviterName} invited you to join their team on LabelPro`,
-      html: getTeamInvitationEmailHtml(inviterName, teamName, invitationUrl, email),
+      html: getTeamInvitationEmailHtml(inviterName, teamName, invitationUrl),
       text: getTeamInvitationEmailText(inviterName, teamName, invitationUrl),
     })
 

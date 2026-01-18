@@ -1,11 +1,11 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { Card } from '@/components/ui/card'
+import { Card, CardHeader, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Spinner } from '@/components/ui/Spinner'
-import { Key, Copy, Eye, EyeOff, Plus, Trash2, AlertCircle } from 'lucide-react'
+import { Key, Copy, Plus, Trash2, AlertCircle } from 'lucide-react'
 import { supabase } from '@/lib/supabase/client'
 import { useToast } from '@/components/ui/Toast'
 
@@ -148,12 +148,12 @@ export const ApiSettings: React.FC = () => {
       {/* New Key Modal */}
       {showNewKeyModal && (
         <Card className="mb-6 border-blue-200">
-          <Card.Header>
+          <CardHeader>
             <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">
               Create New API Key
             </h3>
-          </Card.Header>
-          <Card.Body>
+          </CardHeader>
+          <CardContent>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-[var(--color-text-primary)] mb-2">
@@ -179,14 +179,14 @@ export const ApiSettings: React.FC = () => {
                 </Button>
               </div>
             </div>
-          </Card.Body>
+          </CardContent>
         </Card>
       )}
 
       {/* New Key Display */}
       {newKey && (
         <Card className="mb-6 border-green-200 bg-green-50">
-          <Card.Body>
+          <CardContent>
             <div className="flex items-start gap-4">
               <AlertCircle size={24} className="text-green-600 flex-shrink-0 mt-1" />
               <div className="flex-1">
@@ -211,7 +211,7 @@ export const ApiSettings: React.FC = () => {
                 </div>
               </div>
             </div>
-          </Card.Body>
+          </CardContent>
         </Card>
       )}
 
@@ -239,18 +239,18 @@ export const ApiSettings: React.FC = () => {
 
       {apiKeys.length === 0 ? (
         <Card>
-          <Card.Body className="text-center py-12">
+          <CardContent className="text-center py-12">
             <Key size={48} className="mx-auto text-gray-400 mb-4" />
             <p className="text-[var(--color-text-secondary)] mb-4">
               No API keys found. Create your first API key to get started.
             </p>
-          </Card.Body>
+          </CardContent>
         </Card>
       ) : (
         <div className="space-y-4">
           {apiKeys.map((key) => (
             <Card key={key.id}>
-              <Card.Body>
+              <CardContent>
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
@@ -282,7 +282,7 @@ export const ApiSettings: React.FC = () => {
                     Delete
                   </Button>
                 </div>
-              </Card.Body>
+              </CardContent>
             </Card>
           ))}
         </div>
@@ -290,7 +290,7 @@ export const ApiSettings: React.FC = () => {
 
       {/* API Documentation Link */}
       <Card>
-        <Card.Body>
+        <CardContent>
           <div className="flex items-center justify-between">
             <div>
               <h3 className="font-medium text-[var(--color-text-primary)] mb-1">
@@ -308,7 +308,7 @@ export const ApiSettings: React.FC = () => {
               View Docs
             </Button>
           </div>
-        </Card.Body>
+        </CardContent>
       </Card>
     </div>
   )

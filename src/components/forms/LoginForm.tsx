@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from 'react'
-import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -20,7 +19,6 @@ export interface LoginFormProps {
  * Handles email/password authentication
  */
 export const LoginForm: React.FC<LoginFormProps> = ({ redirectTo = '/dashboard', onSuccess }) => {
-  const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [formData, setFormData] = useState({
@@ -171,7 +169,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ redirectTo = '/dashboard',
         <Checkbox
           label="Remember me for 90 days"
           checked={formData.rememberMe}
-          onChange={(e) => handleInputChange('rememberMe', e.target.checked)}
+          onChange={(checked) => handleInputChange('rememberMe', checked)}
           disabled={loading}
         />
 

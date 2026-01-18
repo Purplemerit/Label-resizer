@@ -36,7 +36,6 @@ export async function POST(request: NextRequest) {
     }
 
     const hasAccess = await checkFeatureAccess(
-      session.user.id,
       'add_team_member',
       profile.subscription_tier
     )

@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 
 export interface QuickAction {
@@ -32,11 +32,11 @@ export const QuickActionsSection: React.FC<QuickActionsSectionProps> = ({
   const actions = customActions || defaultActions
 
   return (
-    <Card variant="elevated" className={className}>
-      <Card.Header>
+    <Card className={className}>
+      <CardHeader>
         <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">Quick Actions</h2>
-      </Card.Header>
-      <Card.Body>
+      </CardHeader>
+      <CardContent>
         <div className="space-y-3">
           {actions.map((action, index) => (
             <Link key={index} href={action.href}>
@@ -46,7 +46,7 @@ export const QuickActionsSection: React.FC<QuickActionsSectionProps> = ({
             </Link>
           ))}
         </div>
-      </Card.Body>
+      </CardContent>
     </Card>
   )
 }

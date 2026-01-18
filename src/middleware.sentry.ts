@@ -3,9 +3,15 @@
  * This should be imported in middleware.ts if using Sentry
  */
 
-import * as Sentry from '@sentry/nextjs'
-
 export async function withSentryMiddleware(handler: (request: any) => Promise<any>) {
-  return Sentry.withSentryMiddleware(handler)
+  // Sentry middleware wrapper - simplified for compatibility
+  return async (request: any) => {
+    try {
+      return await handler(request)
+    } catch (error) {
+      console.error('Middleware error:', error)
+      throw error
+    }
+  }
 }
 

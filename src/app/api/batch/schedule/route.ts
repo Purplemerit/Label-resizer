@@ -29,7 +29,6 @@ export async function POST(request: NextRequest) {
     }
 
     const hasAccess = await checkFeatureAccess(
-      session.user.id,
       'schedule_batch',
       profile.subscription_tier
     )

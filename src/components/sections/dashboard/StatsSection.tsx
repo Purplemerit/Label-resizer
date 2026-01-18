@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 
 export interface StatCard {
   label: string
@@ -22,7 +22,7 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ stats, className }) 
     <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 ${className || ''}`}>
       {stats.map((stat, index) => (
         <Card key={index}>
-          <Card.Body>
+          <CardContent>
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-[var(--color-text-secondary)] mb-1">{stat.label}</p>
@@ -37,7 +37,7 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ stats, className }) 
               </div>
               {stat.icon && <div>{stat.icon}</div>}
             </div>
-          </Card.Body>
+          </CardContent>
         </Card>
       ))}
     </div>

@@ -73,7 +73,7 @@ export async function storePDF({
     }
 
     // Upload file
-    const { data, error } = await supabase.storage
+    const { error } = await supabase.storage
       .from('label_outputs')
       .upload(filePath, buffer, {
         contentType: 'application/pdf',

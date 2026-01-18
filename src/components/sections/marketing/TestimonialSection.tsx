@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 
 export interface Testimonial {
   name: string
@@ -62,8 +62,8 @@ export const TestimonialSection: React.FC<TestimonialSectionProps> = ({
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} variant="elevated">
-              <Card.Body>
+            <Card key={index}>
+              <CardContent>
                 <p className="text-[var(--color-text-secondary)] mb-6 italic">
                   "{testimonial.content}"
                 </p>
@@ -90,7 +90,7 @@ export const TestimonialSection: React.FC<TestimonialSectionProps> = ({
                     </p>
                   </div>
                 </div>
-              </Card.Body>
+              </CardContent>
             </Card>
           ))}
         </div>

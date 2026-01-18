@@ -30,7 +30,7 @@ export async function initSentry() {
           blockAllMedia: true,
         }),
       ],
-      beforeSend(event, hint) {
+      beforeSend(event, _hint) {
         // Filter out noisy errors in development
         if (SENTRY_ENVIRONMENT === 'development') {
           return null
@@ -64,7 +64,7 @@ export async function initSentryServer() {
       dsn: SENTRY_DSN,
       environment: SENTRY_ENVIRONMENT,
       tracesSampleRate: SENTRY_ENVIRONMENT === 'production' ? 0.1 : 1.0,
-      beforeSend(event, hint) {
+      beforeSend(event, _hint) {
         // Filter out development errors
         if (SENTRY_ENVIRONMENT === 'development') {
           return null

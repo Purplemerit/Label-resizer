@@ -1,10 +1,10 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { Card } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Spinner } from '@/components/ui/Spinner'
-import { Monitor, Trash2, LogOut } from 'lucide-react'
+import { Monitor, LogOut } from 'lucide-react'
 import { supabase } from '@/lib/supabase/client'
 import { format } from 'date-fns'
 import { useToast } from '@/components/ui/Toast'
@@ -40,7 +40,7 @@ export const SessionsSettings: React.FC = () => {
       // In production, you'd fetch sessions from your database or auth provider
       const mockSessions: Session[] = [
         {
-          id: currentSession?.session?.user?.id || 'current',
+          id: currentSession?.user?.id || 'current',
           user_agent: navigator.userAgent,
           created_at: currentSession?.user?.created_at || new Date().toISOString(),
           is_current: true,
@@ -73,7 +73,7 @@ export const SessionsSettings: React.FC = () => {
     }
   }
 
-  const handleLogoutSession = async (sessionId: string) => {
+  const handleLogoutSession = async (_sessionId: string) => {
     if (!confirm('Are you sure you want to logout from this device?')) return
 
     // For non-current sessions, you'd call an API to revoke that specific session
@@ -111,7 +111,7 @@ export const SessionsSettings: React.FC = () => {
       </div>
 
       <Card>
-        <Card.Body>
+        <CardContent>
           <div className="space-y-4">
             {sessions.map((session) => (
               <div
@@ -148,11 +148,11 @@ export const SessionsSettings: React.FC = () => {
               </div>
             ))}
           </div>
-        </Card.Body>
+        </CardContent>
       </Card>
 
       <Card>
-        <Card.Body>
+        <CardContent>
           <div className="flex items-center justify-between">
             <div>
               <h3 className="font-medium text-[var(--color-text-primary)] mb-1">
@@ -167,7 +167,7 @@ export const SessionsSettings: React.FC = () => {
               Logout All
             </Button>
           </div>
-        </Card.Body>
+        </CardContent>
       </Card>
     </div>
   )

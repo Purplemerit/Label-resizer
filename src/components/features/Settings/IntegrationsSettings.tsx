@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { Card } from '@/components/ui/card'
+import { Card, CardHeader, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Spinner } from '@/components/ui/Spinner'
@@ -122,13 +122,13 @@ export const IntegrationsSettings: React.FC = () => {
             className="cursor-pointer hover:shadow-lg transition-shadow"
             onClick={() => setActiveTab('shopify')}
           >
-            <Card.Body className="text-center">
+            <CardContent className="text-center">
               <Store size={48} className="mx-auto text-green-600 mb-4" />
               <h3 className="font-semibold text-[var(--color-text-primary)] mb-2">Shopify</h3>
               <p className="text-sm text-[var(--color-text-secondary)]">
                 Automatically generate labels when orders are placed
               </p>
-            </Card.Body>
+            </CardContent>
           </Card>
 
           {/* WooCommerce */}
@@ -136,13 +136,13 @@ export const IntegrationsSettings: React.FC = () => {
             className="cursor-pointer hover:shadow-lg transition-shadow"
             onClick={() => setActiveTab('woocommerce')}
           >
-            <Card.Body className="text-center">
+            <CardContent className="text-center">
               <Store size={48} className="mx-auto text-purple-600 mb-4" />
               <h3 className="font-semibold text-[var(--color-text-primary)] mb-2">WooCommerce</h3>
               <p className="text-sm text-[var(--color-text-secondary)]">
                 Sync orders and generate labels automatically
               </p>
-            </Card.Body>
+            </CardContent>
           </Card>
 
           {/* Custom Webhook */}
@@ -150,13 +150,13 @@ export const IntegrationsSettings: React.FC = () => {
             className="cursor-pointer hover:shadow-lg transition-shadow"
             onClick={() => setActiveTab('custom')}
           >
-            <Card.Body className="text-center">
+            <CardContent className="text-center">
               <ExternalLink size={48} className="mx-auto text-blue-600 mb-4" />
               <h3 className="font-semibold text-[var(--color-text-primary)] mb-2">Custom Webhook</h3>
               <p className="text-sm text-[var(--color-text-secondary)]">
                 Connect any platform via webhook URL
               </p>
-            </Card.Body>
+            </CardContent>
           </Card>
         </div>
       </div>
@@ -170,7 +170,7 @@ export const IntegrationsSettings: React.FC = () => {
           <div className="space-y-3">
             {integrations.map((integration) => (
               <Card key={integration.id}>
-                <Card.Body>
+                <CardContent>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
                       <div
@@ -207,7 +207,7 @@ export const IntegrationsSettings: React.FC = () => {
                       Disconnect
                     </Button>
                   </div>
-                </Card.Body>
+                </CardContent>
               </Card>
             ))}
           </div>
@@ -217,19 +217,19 @@ export const IntegrationsSettings: React.FC = () => {
       {/* Configuration Forms */}
       {activeTab && (
         <Card>
-          <Card.Header>
+          <CardHeader>
             <h3 className="text-lg font-semibold text-[var(--color-text-primary)] capitalize">
               Connect {activeTab}
             </h3>
-          </Card.Header>
-          <Card.Body>
+          </CardHeader>
+          <CardContent>
             {activeTab === 'shopify' && <ShopifyConfigForm onConnect={handleConnect} />}
             {activeTab === 'woocommerce' && <WooCommerceConfigForm onConnect={handleConnect} />}
             {activeTab === 'custom' && <CustomWebhookConfigForm onConnect={handleConnect} />}
             <Button variant="outline" onClick={() => setActiveTab(null)} className="mt-4">
               Cancel
             </Button>
-          </Card.Body>
+          </CardContent>
         </Card>
       )}
     </div>

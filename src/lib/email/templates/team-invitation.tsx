@@ -5,8 +5,7 @@
 export function getTeamInvitationEmailHtml(
   inviterName: string,
   teamName: string,
-  invitationUrl: string,
-  inviteeEmail: string
+  invitationUrl: string
 ): string {
   return `
 <!DOCTYPE html>

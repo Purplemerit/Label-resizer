@@ -26,7 +26,7 @@ export async function uploadImage({
   file,
   userId,
   designId,
-  onProgress,
+  onProgress: _onProgress,
 }: UploadImageParams): Promise<UploadImageResult> {
   try {
     // Validate file type
@@ -55,7 +55,7 @@ export async function uploadImage({
       : `${userId}/drafts/${fileName}`
 
     // Upload to Supabase Storage
-    const { data, error } = await supabase.storage
+    const { error } = await supabase.storage
       .from('label_images')
       .upload(filePath, file, {
         cacheControl: '3600',
@@ -126,7 +126,7 @@ export async function getStorageUsage(userId: string): Promise<{
 }> {
   try {
     // List all files for user
-    const { data, error } = await supabase.storage.from('label_images').list(userId, {
+    const { error } = await supabase.storage.from('label_images').list(userId, {
       limit: 1000,
       sortBy: { column: 'created_at', order: 'desc' },
     })

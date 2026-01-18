@@ -1,10 +1,9 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { Card, CardContent, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Loader2 } from 'lucide-react'
-import { Printer, Download, Clock, X } from 'lucide-react'
+import { Printer, Clock, X } from 'lucide-react'
 import { supabase } from '@/lib/supabase/client'
 import { format } from 'date-fns'
 
@@ -94,7 +93,7 @@ export const PrintHistoryList: React.FC = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-12">
-        <Spinner />
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
       </div>
     )
   }

@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Zap, Users, Code } from 'lucide-react'
 
@@ -40,8 +40,8 @@ export const UpgradePromoSection: React.FC<UpgradePromoSectionProps> = ({
   ]
 
   return (
-    <Card variant="elevated" className={`bg-gradient-to-r from-[var(--color-primary-50)] to-[var(--color-primary-100)] ${className || ''}`}>
-      <Card.Body>
+    <Card className={`bg-gradient-to-r from-[var(--color-primary-50)] to-[var(--color-primary-100)] ${className || ''}`}>
+      <CardContent>
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="flex-1">
             <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-2">
@@ -73,7 +73,7 @@ export const UpgradePromoSection: React.FC<UpgradePromoSectionProps> = ({
             <Button variant="primary">Upgrade Now</Button>
           </Link>
         </div>
-      </Card.Body>
+      </CardContent>
     </Card>
   )
 }
