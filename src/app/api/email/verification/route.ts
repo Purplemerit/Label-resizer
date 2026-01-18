@@ -22,7 +22,11 @@ export async function POST(request: NextRequest) {
     }
 
     // Generate verification token
+<<<<<<< HEAD
     const { error } = await supabase.auth.resend({
+=======
+    const { data, error } = await supabase.auth.resend({
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       type: 'signup',
       email: email,
     })

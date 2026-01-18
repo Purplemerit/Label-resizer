@@ -19,7 +19,11 @@ export async function DELETE(request: NextRequest) {
       return rateLimitResult
     }
 
+<<<<<<< HEAD
     const { session } = await createUserClient()
+=======
+    const { supabase, session } = await createUserClient()
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
     if (!session?.user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })

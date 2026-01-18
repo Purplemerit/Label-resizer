@@ -4,6 +4,10 @@ import React from 'react'
 import { useEditorStore } from '@/lib/store/editorStore'
 import { EditorElement } from '@/types/editor'
 import { Type, Image, Barcode, Square, Eye, EyeOff, X, GripVertical } from 'lucide-react'
+<<<<<<< HEAD
+=======
+import { Button } from '@/components/ui/button'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { cn } from '@/lib/utils/cn'
 
 export interface LayersPanelProps {
@@ -66,6 +70,26 @@ export const LayersPanel: React.FC<LayersPanelProps> = ({ className }) => {
     }
   }
 
+<<<<<<< HEAD
+=======
+  const handleMoveUp = (elementId: string) => {
+    const element = elements.find((e) => e.id === elementId)
+    if (!element) return
+    const maxZIndex = Math.max(...elements.map((e) => e.z_index), 0)
+    if (element.z_index < maxZIndex) {
+      updateElement(elementId, { z_index: element.z_index + 1 })
+    }
+  }
+
+  const handleMoveDown = (elementId: string) => {
+    const element = elements.find((e) => e.id === elementId)
+    if (!element) return
+    if (element.z_index > 1) {
+      updateElement(elementId, { z_index: element.z_index - 1 })
+    }
+  }
+
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   if (elements.length === 0) {
     return (
       <div className={cn('p-4 bg-white border-r border-[var(--color-border-primary)]', className)}>

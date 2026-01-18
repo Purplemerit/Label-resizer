@@ -1,7 +1,11 @@
 "use client"
 
 import { useState, useEffect } from "react"
+<<<<<<< HEAD
 import { getPrinters, deletePrinter, getPrintQueue, deletePrintJob } from "@/server/actions/printers"
+=======
+import { getPrinters, addPrinter, updatePrinter, deletePrinter, getPrintQueue, deletePrintJob } from "@/server/actions/printers"
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import {
   Printer,
   Plus,
@@ -52,6 +56,113 @@ import {
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { cn } from "@/lib/utils"
 
+<<<<<<< HEAD
+=======
+const connectedPrinters = [
+  {
+    id: 1,
+    name: "DYMO LabelWriter 450",
+    type: "DYMO",
+    connection: "usb",
+    status: "online",
+    isDefault: true,
+    lastUsed: "2 mins ago",
+    paperSize: "30252 Address",
+    labelsRemaining: 250,
+    totalPrinted: 1247,
+    firmware: "v2.4.1",
+  },
+  {
+    id: 2,
+    name: "Zebra ZD420",
+    type: "Zebra",
+    connection: "wifi",
+    status: "online",
+    isDefault: false,
+    lastUsed: "1 hour ago",
+    paperSize: "4x6 Shipping",
+    labelsRemaining: 500,
+    totalPrinted: 3421,
+    firmware: "v1.8.3",
+  },
+  {
+    id: 3,
+    name: "Brother QL-820NWB",
+    type: "Brother",
+    connection: "wifi",
+    status: "offline",
+    isDefault: false,
+    lastUsed: "2 days ago",
+    paperSize: "DK-1201",
+    labelsRemaining: 0,
+    totalPrinted: 892,
+    firmware: "v1.2.0",
+  },
+  {
+    id: 4,
+    name: "Rollo X1038",
+    type: "Rollo",
+    connection: "usb",
+    status: "paused",
+    isDefault: false,
+    lastUsed: "5 hours ago",
+    paperSize: "4x6 Shipping",
+    labelsRemaining: 320,
+    totalPrinted: 2156,
+    firmware: "v3.1.0",
+  },
+]
+
+const printQueue = [
+  {
+    id: 1,
+    name: "Order_12345_FBA.pdf",
+    printer: "DYMO LabelWriter 450",
+    status: "printing",
+    progress: 65,
+    copies: 1,
+    startedAt: "2 mins ago",
+  },
+  {
+    id: 2,
+    name: "Batch_Orders_Jan.pdf",
+    printer: "Zebra ZD420",
+    status: "queued",
+    progress: 0,
+    copies: 25,
+    startedAt: "Waiting",
+  },
+  {
+    id: 3,
+    name: "Return_Label_789.pdf",
+    printer: "DYMO LabelWriter 450",
+    status: "queued",
+    progress: 0,
+    copies: 1,
+    startedAt: "Waiting",
+  },
+  {
+    id: 4,
+    name: "SKU_Labels_Batch.pdf",
+    printer: "Zebra ZD420",
+    status: "completed",
+    progress: 100,
+    copies: 50,
+    startedAt: "10 mins ago",
+  },
+  {
+    id: 5,
+    name: "Address_Labels.pdf",
+    printer: "Brother QL-820NWB",
+    status: "failed",
+    progress: 0,
+    copies: 10,
+    startedAt: "15 mins ago",
+    error: "Printer offline",
+  },
+]
+
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 const availablePrinters = [
   { id: 1, name: "HP LaserJet Pro", type: "Network", ip: "192.168.1.45" },
   { id: 2, name: "DYMO LabelWriter 550", type: "USB", ip: null },
@@ -64,6 +175,10 @@ export function PrintersContent() {
   const [showAddDialog, setShowAddDialog] = useState(false)
   const [showSettingsDialog, setShowSettingsDialog] = useState(false)
   const [selectedPrinter, setSelectedPrinter] = useState<any | null>(null)
+<<<<<<< HEAD
+=======
+  const [searchQuery, setSearchQuery] = useState("")
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   const [isScanning, setIsScanning] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
 
@@ -82,6 +197,20 @@ export function PrintersContent() {
     setIsLoading(false)
   }
 
+<<<<<<< HEAD
+=======
+  const handleAddPrinter = async (formData: any) => {
+    await addPrinter(formData)
+    await loadData()
+    setShowAddDialog(false)
+  }
+
+  const handleUpdatePrinter = async (id: string, updates: any) => {
+    await updatePrinter(id, updates)
+    await loadData()
+  }
+
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   const handleDeletePrinter = async (id: string) => {
     await deletePrinter(id)
     await loadData()

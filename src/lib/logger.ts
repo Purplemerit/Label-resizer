@@ -5,6 +5,11 @@
 
 import * as Sentry from '@sentry/nextjs'
 
+<<<<<<< HEAD
+=======
+type LogLevel = 'info' | 'warn' | 'error' | 'debug'
+
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 interface LogContext {
   [key: string]: any
 }

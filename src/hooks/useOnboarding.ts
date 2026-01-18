@@ -2,6 +2,10 @@
 
 import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase/client'
+<<<<<<< HEAD
+=======
+import { useRouter } from 'next/navigation'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
 export interface OnboardingState {
   shouldShowOnboarding: boolean
@@ -20,6 +24,11 @@ export function useOnboarding() {
     onboardingSkipped: false,
     isLoading: true,
   })
+<<<<<<< HEAD
+=======
+  const router = useRouter()
+
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   useEffect(() => {
     checkOnboardingStatus()
   }, [])

@@ -1,6 +1,10 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+<<<<<<< HEAD
+=======
+import { Dialog } from '@/components/ui/Dialog'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { Button } from '@/components/ui/button'
 import { X, ChevronRight, ChevronLeft, Check } from 'lucide-react'
 import { supabase } from '@/lib/supabase/client'

@@ -22,7 +22,11 @@ if (SENTRY_DSN) {
         blockAllMedia: true,
       }),
     ],
+<<<<<<< HEAD
     beforeSend(event) {
+=======
+    beforeSend(event, hint) {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       // Filter out noisy errors in development
       if (SENTRY_ENVIRONMENT === 'development') {
         return null

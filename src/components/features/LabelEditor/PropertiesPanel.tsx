@@ -3,7 +3,11 @@
 import React from 'react'
 import { useEditorStore } from '@/lib/store/editorStore'
 import { supabase } from '@/lib/supabase/client'
+<<<<<<< HEAD
 import { Input } from '@/components/ui/input'
+=======
+import { Input } from '@/components/ui/Input'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { Button } from '@/components/ui/button'
 import { EditorElement, TextElement, ImageElement, BarcodeElement, ShapeElement } from '@/types/editor'
 import { cn } from '@/lib/utils/cn'
@@ -18,7 +22,11 @@ export interface PropertiesPanelProps {
 export const PropertiesPanel: React.FC<PropertiesPanelProps> = ({ className }) => {
   const { selectedElementId, elements, updateElement, deleteElement } = useEditorStore()
 
+<<<<<<< HEAD
   const selectedElement = elements.find((el: any) => el.id === selectedElementId)
+=======
+  const selectedElement = elements.find((el) => el.id === selectedElementId)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
   if (!selectedElement) {
     return (
@@ -57,6 +65,7 @@ export const PropertiesPanel: React.FC<PropertiesPanelProps> = ({ className }) =
       <div className="mb-6 space-y-4">
         <h4 className="text-sm font-semibold text-[var(--color-text-primary)]">Position & Size</h4>
         <div className="grid grid-cols-2 gap-3">
+<<<<<<< HEAD
           <div className="space-y-2">
             <label className="text-sm font-medium">X</label>
             <Input
@@ -97,6 +106,40 @@ export const PropertiesPanel: React.FC<PropertiesPanelProps> = ({ className }) =
               }}
             />
           </div>
+=======
+          <Input
+            label="X"
+            type="number"
+            value={selectedElement.x}
+            onChange={(e) => handleUpdate({ x: parseFloat(e.target.value) || 0 })}
+          />
+          <Input
+            label="Y"
+            type="number"
+            value={selectedElement.y}
+            onChange={(e) => handleUpdate({ y: parseFloat(e.target.value) || 0 })}
+          />
+          <Input
+            label="Width"
+            type="number"
+            min="10"
+            value={selectedElement.width}
+            onChange={(e) => {
+              const width = Math.max(10, parseFloat(e.target.value) || 0)
+              handleUpdate({ width })
+            }}
+          />
+          <Input
+            label="Height"
+            type="number"
+            min="10"
+            value={selectedElement.height}
+            onChange={(e) => {
+              const height = Math.max(10, parseFloat(e.target.value) || 0)
+              handleUpdate({ height })
+            }}
+          />
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         </div>
         <div>
           <label className="block text-xs font-semibold text-[var(--color-gray-700)] mb-1.5">
@@ -199,8 +242,13 @@ function TextElementProperties({
     <div className="space-y-4">
       <h4 className="text-sm font-semibold text-[var(--color-text-primary)]">Text Properties</h4>
       <div>
+<<<<<<< HEAD
         <label className="text-sm font-medium mb-2 block">Text</label>
         <Input
+=======
+        <Input
+          label="Text"
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           type="text"
           value={element.properties.text}
           onChange={(e) => handleTextChange(e.target.value)}
@@ -494,11 +542,20 @@ function BarcodeElementProperties({
     <div className="space-y-4">
       <h4 className="text-sm font-semibold text-[var(--color-text-primary)]">Barcode Properties</h4>
       <div>
+<<<<<<< HEAD
         <label className="text-sm font-medium mb-2 block">Value</label>
         <Input
           type="text"
           value={element.properties.barcode_value}
           onChange={(e) => handleValueChange(e.target.value)}
+=======
+        <Input
+          label="Value"
+          type="text"
+          value={element.properties.barcode_value}
+          onChange={(e) => handleValueChange(e.target.value)}
+          error={validationError || undefined}
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         />
         {validationError && (
           <p className="mt-1 text-xs text-[var(--color-error-500)]">{validationError}</p>
@@ -572,6 +629,7 @@ function ShapeElementProperties({
   return (
     <div className="space-y-4">
       <h4 className="text-sm font-semibold text-[var(--color-text-primary)]">Shape Properties</h4>
+<<<<<<< HEAD
       <div className="space-y-2">
         <label className="text-sm font-medium">Fill Color</label>
         <Input
@@ -610,6 +668,40 @@ function ShapeElementProperties({
           }
         />
       </div>
+=======
+      <Input
+        label="Fill Color"
+        type="color"
+        value={element.properties.fill_color}
+        onChange={(e) =>
+          onUpdate({
+            properties: { ...element.properties, fill_color: e.target.value },
+          } as Partial<ShapeElement>)
+        }
+      />
+      <Input
+        label="Border Color"
+        type="color"
+        value={element.properties.border_color}
+        onChange={(e) =>
+          onUpdate({
+            properties: { ...element.properties, border_color: e.target.value },
+          } as Partial<ShapeElement>)
+        }
+      />
+      <Input
+        label="Border Width"
+        type="number"
+        min="1"
+        max="10"
+        value={element.properties.border_width}
+        onChange={(e) =>
+          onUpdate({
+            properties: { ...element.properties, border_width: parseInt(e.target.value) || 1 },
+          } as Partial<ShapeElement>)
+        }
+      />
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       <div>
         <label className="block text-xs font-semibold text-[var(--color-gray-700)] mb-1.5">
           Fill Opacity
@@ -635,6 +727,10 @@ function ShapeElementProperties({
 
 function ZIndexControls({
   selectedElement,
+<<<<<<< HEAD
+=======
+  onUpdate,
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 }: {
   selectedElement: EditorElement
   onUpdate: (updates: Partial<EditorElement>) => void
@@ -643,7 +739,11 @@ function ZIndexControls({
 
   const handleMoveUp = () => {
     const currentIndex = selectedElement.z_index
+<<<<<<< HEAD
     const maxZIndex = Math.max(...elements.map((e: any) => e.z_index), 0)
+=======
+    const maxZIndex = Math.max(...elements.map((e) => e.z_index), 0)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     if (currentIndex < maxZIndex) {
       updateElement(selectedElement.id, { z_index: currentIndex + 1 })
     }

@@ -3,6 +3,10 @@ import Link from 'next/link'
 import { cn } from '@/lib/utils/cn'
 
 export interface FooterProps {
+<<<<<<< HEAD
+=======
+  variant?: 'default' | 'minimal'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   className?: string
 }
 
@@ -10,7 +14,11 @@ export interface FooterProps {
  * Footer component
  * Includes links, copyright, and social media
  */
+<<<<<<< HEAD
 export const Footer: React.FC<FooterProps> = ({ className }) => {
+=======
+export const Footer: React.FC<FooterProps> = ({ variant = 'default', className }) => {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   return (
     <footer
       className={cn(

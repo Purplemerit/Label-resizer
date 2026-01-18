@@ -18,7 +18,11 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json()
+<<<<<<< HEAD
     const { printer_id, design_id, quantity = 1 } = body
+=======
+    const { printer_id, design_id, quantity = 1, pdf_url } = body
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
     if (!printer_id || !design_id) {
       return NextResponse.json(
@@ -65,7 +69,11 @@ export async function POST(request: NextRequest) {
     const height_px = dpi === 203 ? labelBase.height_px_203dpi : labelBase.height_px_300dpi
 
     // Generate PDF for printing
+<<<<<<< HEAD
     let printStatus: { success: boolean; error?: string } = { success: true }
+=======
+    let printStatus = { success: true as boolean, error: undefined as string | undefined }
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
     if (printer.connection_type === 'network' && printer.network_ip) {
       // For network printers, generate PDF and send directly

@@ -1,4 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
+<<<<<<< HEAD
+=======
+import { createHash } from 'crypto'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { createClient } from '@supabase/supabase-js'
 import { authenticateApiKey, checkRateLimit, incrementApiUsage } from '@/lib/api/apiAuth'
 
@@ -19,11 +23,19 @@ export async function GET(request: NextRequest) {
     }
 
     const authenticatedUser = await authenticateApiKey(apiKey)
+<<<<<<< HEAD
     if (!authenticatedUser.success || !authenticatedUser.userId) {
       return NextResponse.json({ error: 'Invalid API key' }, { status: 401 })
     }
 
     const rateLimitCheck = await checkRateLimit(authenticatedUser.userId)
+=======
+    if (!authenticatedUser) {
+      return NextResponse.json({ error: 'Invalid API key' }, { status: 401 })
+    }
+
+    const rateLimitCheck = await checkRateLimit(authenticatedUser.user_id, apiKey)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     if (!rateLimitCheck.allowed) {
       return NextResponse.json(
         { error: 'Rate limit exceeded' },
@@ -36,7 +48,11 @@ export async function GET(request: NextRequest) {
     const { data: templates, error } = await supabase
       .from('templates')
       .select('*')
+<<<<<<< HEAD
       .eq('user_id', authenticatedUser.userId)
+=======
+      .eq('user_id', authenticatedUser.user_id)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       .order('created_at', { ascending: false })
 
     if (error) {
@@ -44,7 +60,11 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Failed to fetch templates' }, { status: 500 })
     }
 
+<<<<<<< HEAD
     await incrementApiUsage(authenticatedUser.userId)
+=======
+    await incrementApiUsage(authenticatedUser.user_id, apiKey)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
     return NextResponse.json({
       success: true,

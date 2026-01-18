@@ -1,9 +1,16 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+<<<<<<< HEAD
 import { Card, CardHeader, CardContent, CardTitle } from '@/components/ui/card'
 import { Users, DollarSign, Activity, FileText } from 'lucide-react'
 import { supabase } from '@/lib/supabase/client'
+=======
+import { Card } from '@/components/ui/Card'
+import { Spinner } from '@/components/ui/Spinner'
+import { Users, DollarSign, TrendingUp, Activity, FileText, Zap } from 'lucide-react'
+import { format } from 'date-fns'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
 interface DashboardStats {
   total_users: number
@@ -25,6 +32,12 @@ interface DashboardStats {
   }>
 }
 
+<<<<<<< HEAD
+=======
+/**
+ * AdminDashboard component - overview of system metrics
+ */
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 export const AdminDashboard: React.FC = () => {
   const [stats, setStats] = useState<DashboardStats | null>(null)
   const [loading, setLoading] = useState(true)
@@ -34,6 +47,7 @@ export const AdminDashboard: React.FC = () => {
   }, [])
 
   const loadDashboardStats = async () => {
+<<<<<<< HEAD
     try {
       setLoading(true)
       
@@ -90,6 +104,17 @@ export const AdminDashboard: React.FC = () => {
       })
     } catch (error) {
       console.error('Error loading dashboard stats:', error)
+=======
+    setLoading(true)
+    try {
+      const response = await fetch('/api/admin/stats')
+      if (!response.ok) throw new Error('Failed to load stats')
+
+      const data = await response.json()
+      setStats(data)
+    } catch (error) {
+      console.error('Load dashboard stats error:', error)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     } finally {
       setLoading(false)
     }
@@ -98,7 +123,11 @@ export const AdminDashboard: React.FC = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-12">
+<<<<<<< HEAD
         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+=======
+        <Spinner />
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       </div>
     )
   }
@@ -112,11 +141,19 @@ export const AdminDashboard: React.FC = () => {
       {/* Key Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card>
+<<<<<<< HEAD
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-muted-foreground mb-1">Total Users</p>
                 <p className="text-3xl font-bold">
+=======
+          <Card.Body>
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-[var(--color-text-secondary)] mb-1">Total Users</p>
+                <p className="text-3xl font-bold text-[var(--color-text-primary)]">
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                   {stats.total_users.toLocaleString()}
                 </p>
                 <p className="text-xs text-green-600 mt-1">
@@ -127,6 +164,7 @@ export const AdminDashboard: React.FC = () => {
                 <Users size={24} className="text-blue-600" />
               </div>
             </div>
+<<<<<<< HEAD
           </CardContent>
         </Card>
 
@@ -136,6 +174,17 @@ export const AdminDashboard: React.FC = () => {
               <div>
                 <p className="text-sm text-muted-foreground mb-1">Active Today</p>
                 <p className="text-3xl font-bold">
+=======
+          </Card.Body>
+        </Card>
+
+        <Card>
+          <Card.Body>
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-[var(--color-text-secondary)] mb-1">Active Today</p>
+                <p className="text-3xl font-bold text-[var(--color-text-primary)]">
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                   {stats.active_users_today.toLocaleString()}
                 </p>
               </div>
@@ -143,6 +192,7 @@ export const AdminDashboard: React.FC = () => {
                 <Activity size={24} className="text-green-600" />
               </div>
             </div>
+<<<<<<< HEAD
           </CardContent>
         </Card>
 
@@ -155,11 +205,26 @@ export const AdminDashboard: React.FC = () => {
                   ${stats.monthly_revenue.toLocaleString()}
                 </p>
                 <p className="text-xs text-muted-foreground mt-1">MRR</p>
+=======
+          </Card.Body>
+        </Card>
+
+        <Card>
+          <Card.Body>
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-[var(--color-text-secondary)] mb-1">Monthly Revenue</p>
+                <p className="text-3xl font-bold text-[var(--color-text-primary)]">
+                  ${stats.monthly_revenue.toLocaleString()}
+                </p>
+                <p className="text-xs text-[var(--color-text-secondary)] mt-1">MRR</p>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
               </div>
               <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
                 <DollarSign size={24} className="text-purple-600" />
               </div>
             </div>
+<<<<<<< HEAD
           </CardContent>
         </Card>
 
@@ -169,6 +234,17 @@ export const AdminDashboard: React.FC = () => {
               <div>
                 <p className="text-sm text-muted-foreground mb-1">Labels Created</p>
                 <p className="text-3xl font-bold">
+=======
+          </Card.Body>
+        </Card>
+
+        <Card>
+          <Card.Body>
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-[var(--color-text-secondary)] mb-1">Labels Created</p>
+                <p className="text-3xl font-bold text-[var(--color-text-primary)]">
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                   {stats.total_labels.toLocaleString()}
                 </p>
               </div>
@@ -176,13 +252,18 @@ export const AdminDashboard: React.FC = () => {
                 <FileText size={24} className="text-orange-600" />
               </div>
             </div>
+<<<<<<< HEAD
           </CardContent>
+=======
+          </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         </Card>
       </div>
 
       {/* Growth Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Card>
+<<<<<<< HEAD
           <CardHeader>
             <CardTitle className="text-lg font-semibold">
               User Growth
@@ -193,10 +274,23 @@ export const AdminDashboard: React.FC = () => {
               <div className="flex items-center justify-between">
                 <span className="text-muted-foreground">This Month</span>
                 <span className="text-2xl font-bold">
+=======
+          <Card.Header>
+            <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">
+              User Growth
+            </h3>
+          </Card.Header>
+          <Card.Body>
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="text-[var(--color-text-secondary)]">This Month</span>
+                <span className="text-2xl font-bold text-[var(--color-text-primary)]">
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                   +{stats.user_growth.this_month}
                 </span>
               </div>
               <div className="flex items-center justify-between">
+<<<<<<< HEAD
                 <span className="text-muted-foreground">Last Month</span>
                 <span className="text-xl">
                   {stats.user_growth.last_month}
@@ -223,10 +317,44 @@ export const AdminDashboard: React.FC = () => {
               <div className="flex items-center justify-between">
                 <span className="text-muted-foreground">Total Labels</span>
                 <span className="text-2xl font-bold">
+=======
+                <span className="text-[var(--color-text-secondary)]">Last Month</span>
+                <span className="text-xl text-[var(--color-text-primary)]">
+                  {stats.user_growth.last_month}
+                </span>
+              </div>
+              <div className="flex items-center justify-between pt-4 border-t border-[var(--color-border-primary)]">
+                <span className="text-[var(--color-text-secondary)]">Growth Rate</span>
+                <span
+                  className={`text-xl font-bold ${
+                    stats.user_growth.growth_percent >= 0 ? 'text-green-600' : 'text-red-600'
+                  }`}
+                >
+                  {stats.user_growth.growth_percent >= 0 ? '+' : ''}
+                  {stats.user_growth.growth_percent.toFixed(1)}%
+                </span>
+              </div>
+            </div>
+          </Card.Body>
+        </Card>
+
+        <Card>
+          <Card.Header>
+            <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">
+              Usage Statistics
+            </h3>
+          </Card.Header>
+          <Card.Body>
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="text-[var(--color-text-secondary)]">Total Labels</span>
+                <span className="text-2xl font-bold text-[var(--color-text-primary)]">
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                   {stats.total_labels.toLocaleString()}
                 </span>
               </div>
               <div className="flex items-center justify-between">
+<<<<<<< HEAD
                 <span className="text-muted-foreground">Batch Jobs</span>
                 <span className="text-xl">
                   {stats.total_batches.toLocaleString()}
@@ -235,16 +363,31 @@ export const AdminDashboard: React.FC = () => {
               <div className="flex items-center justify-between pt-4 border-t">
                 <span className="text-muted-foreground">Total Revenue</span>
                 <span className="text-xl font-bold">
+=======
+                <span className="text-[var(--color-text-secondary)]">Batch Jobs</span>
+                <span className="text-xl text-[var(--color-text-primary)]">
+                  {stats.total_batches.toLocaleString()}
+                </span>
+              </div>
+              <div className="flex items-center justify-between pt-4 border-t border-[var(--color-border-primary)]">
+                <span className="text-[var(--color-text-secondary)]">Total Revenue</span>
+                <span className="text-xl font-bold text-[var(--color-text-primary)]">
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                   ${stats.total_revenue.toLocaleString()}
                 </span>
               </div>
             </div>
+<<<<<<< HEAD
           </CardContent>
+=======
+          </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         </Card>
       </div>
 
       {/* Recent Activity */}
       <Card>
+<<<<<<< HEAD
         <CardHeader>
           <CardTitle className="text-lg font-semibold">
             Recent Activity
@@ -253,6 +396,16 @@ export const AdminDashboard: React.FC = () => {
         <CardContent>
           {stats.recent_activity.length === 0 ? (
             <p className="text-muted-foreground text-center py-8">
+=======
+        <Card.Header>
+          <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">
+            Recent Activity
+          </h3>
+        </Card.Header>
+        <Card.Body>
+          {stats.recent_activity.length === 0 ? (
+            <p className="text-[var(--color-text-secondary)] text-center py-8">
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
               No recent activity
             </p>
           ) : (
@@ -260,6 +413,7 @@ export const AdminDashboard: React.FC = () => {
               {stats.recent_activity.map((activity) => (
                 <div
                   key={activity.id}
+<<<<<<< HEAD
                   className="flex items-center justify-between p-3 border rounded-lg"
                 >
                   <div>
@@ -268,6 +422,16 @@ export const AdminDashboard: React.FC = () => {
                     </p>
                     <p className="text-sm text-muted-foreground">
                       {new Date(activity.created_at).toLocaleDateString()}
+=======
+                  className="flex items-center justify-between p-3 border border-[var(--color-border-primary)] rounded-lg"
+                >
+                  <div>
+                    <p className="font-medium text-[var(--color-text-primary)]">
+                      {activity.description}
+                    </p>
+                    <p className="text-sm text-[var(--color-text-secondary)]">
+                      {format(new Date(activity.created_at), 'MMM d, yyyy h:mm a')}
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                     </p>
                   </div>
                   <span className="px-2 py-1 text-xs bg-blue-100 text-blue-600 rounded">
@@ -277,10 +441,19 @@ export const AdminDashboard: React.FC = () => {
               ))}
             </div>
           )}
+<<<<<<< HEAD
         </CardContent>
+=======
+        </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       </Card>
     </div>
   )
 }
 
+<<<<<<< HEAD
 export default AdminDashboard
+=======
+export default AdminDashboard
+
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc

@@ -140,7 +140,11 @@ export const useEditorStore = create<EditorStore>((set, get) => ({
     set((state) => {
       const newElements = state.elements.map((element) =>
         element.id === id ? { ...element, ...changes } : element
+<<<<<<< HEAD
       ) as EditorElement[]
+=======
+      )
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       return {
         elements: newElements,
         is_saved: false,
@@ -239,7 +243,11 @@ export const useEditorStore = create<EditorStore>((set, get) => ({
     })
   },
 
+<<<<<<< HEAD
   saveDesign: async (_name: string, _description?: string, _labelBaseId?: string, _elements?: EditorElement[]) => {
+=======
+  saveDesign: async (name: string, description?: string, labelBaseId?: string, elements?: EditorElement[]) => {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     // This will be called from component with server action
     // Store method is kept for state updates
     set({

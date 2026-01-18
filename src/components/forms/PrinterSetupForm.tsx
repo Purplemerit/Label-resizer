@@ -2,8 +2,13 @@
 
 import React, { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
+<<<<<<< HEAD
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+=======
+import { Input } from '@/components/ui/Input'
+import { Select } from '@/components/ui/Select'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
 export interface PrinterFormData {
   name: string
@@ -119,6 +124,7 @@ export const PrinterSetupForm: React.FC<PrinterSetupFormProps> = ({
         </label>
         <Select
           value={formData.type}
+<<<<<<< HEAD
           onValueChange={(value) => handleInputChange('type', value)}
           disabled={loading}
         >
@@ -133,6 +139,17 @@ export const PrinterSetupForm: React.FC<PrinterSetupFormProps> = ({
             <SelectItem value="desktop">Desktop/Inkjet</SelectItem>
             <SelectItem value="network">Network Printer</SelectItem>
           </SelectContent>
+=======
+          onChange={(e) => handleInputChange('type', e.target.value)}
+          disabled={loading}
+        >
+          <option value="dymo">DYMO</option>
+          <option value="zebra">Zebra</option>
+          <option value="rollo">Rollo</option>
+          <option value="brother">Brother</option>
+          <option value="desktop">Desktop/Inkjet</option>
+          <option value="network">Network Printer</option>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         </Select>
       </div>
 
@@ -143,6 +160,7 @@ export const PrinterSetupForm: React.FC<PrinterSetupFormProps> = ({
         </label>
         <Select
           value={formData.connection_type}
+<<<<<<< HEAD
           onValueChange={(value) => handleInputChange('connection_type', value)}
           disabled={loading}
         >
@@ -154,6 +172,14 @@ export const PrinterSetupForm: React.FC<PrinterSetupFormProps> = ({
             <SelectItem value="usb">USB</SelectItem>
             <SelectItem value="network">Network (IP)</SelectItem>
           </SelectContent>
+=======
+          onChange={(e) => handleInputChange('connection_type', e.target.value)}
+          disabled={loading}
+        >
+          <option value="system">System Printer</option>
+          <option value="usb">USB</option>
+          <option value="network">Network (IP)</option>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         </Select>
       </div>
 
@@ -193,6 +219,7 @@ export const PrinterSetupForm: React.FC<PrinterSetupFormProps> = ({
         </label>
         <Select
           value={formData.dpi.toString()}
+<<<<<<< HEAD
           onValueChange={(value) => handleInputChange('dpi', parseInt(value) as 203 | 300)}
           disabled={loading}
         >
@@ -203,6 +230,13 @@ export const PrinterSetupForm: React.FC<PrinterSetupFormProps> = ({
             <SelectItem value="203">203 DPI</SelectItem>
             <SelectItem value="300">300 DPI</SelectItem>
           </SelectContent>
+=======
+          onChange={(e) => handleInputChange('dpi', parseInt(e.target.value) as 203 | 300)}
+          disabled={loading}
+        >
+          <option value="203">203 DPI</option>
+          <option value="300">300 DPI</option>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         </Select>
       </div>
 

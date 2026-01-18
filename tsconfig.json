@@ -41,11 +41,15 @@
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
+<<<<<<< HEAD
     "node_modules",
     "setupTests.ts",
     "**/*.test.ts",
     "**/*.test.tsx",
     "**/*.spec.ts",
     "**/*.spec.tsx"
+=======
+    "node_modules"
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   ]
 }

@@ -12,7 +12,11 @@ import { rateLimitAPI, API_RATE_LIMITS } from '@/lib/rateLimit/apiRateLimit'
  */
 export async function POST(request: NextRequest) {
   // Rate limit check
+<<<<<<< HEAD
   const rateLimitResult = rateLimitAPI(request, API_RATE_LIMITS.default)
+=======
+  const rateLimitResult = rateLimitAPI(request, API_RATE_LIMITS.api)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   if (rateLimitResult) {
     return rateLimitResult
   }

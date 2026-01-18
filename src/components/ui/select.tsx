@@ -3,7 +3,11 @@
 import * as React from "react"
 import * as SelectPrimitive from "@radix-ui/react-select"
 import { Check, ChevronDown, ChevronUp } from "lucide-react"
+<<<<<<< HEAD
 import { cn } from '@/lib/utils/cn'
+=======
+import { cn } from "@/lib/utils"
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
 const Select = SelectPrimitive.Root
 
@@ -154,4 +158,8 @@ export {
   SelectSeparator,
   SelectScrollUpButton,
   SelectScrollDownButton,
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc

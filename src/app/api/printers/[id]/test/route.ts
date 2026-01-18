@@ -8,7 +8,11 @@ import { sendToNetworkPrinter } from '@/lib/services/printerService'
  * Send a test print to the specified printer
  */
 export async function POST(
+<<<<<<< HEAD
   _request: NextRequest,
+=======
+  request: NextRequest,
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {

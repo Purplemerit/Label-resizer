@@ -9,7 +9,11 @@ const rateLimitStore = new Map<string, { count: number; resetTime: number }>()
 
 export function rateLimit(config: RateLimitConfig) {
   return async (req: NextRequest) => {
+<<<<<<< HEAD
     const ip = req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || 'unknown'
+=======
+    const ip = req.ip || req.headers.get('x-forwarded-for') || 'unknown'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     const now = Date.now()
     const key = `${ip}:${req.nextUrl.pathname}`
     

@@ -5,7 +5,11 @@ import { useLabels } from '@/lib/hooks/useLabels'
 import { Label } from '@/lib/constants/labels'
 import { LabelCard } from './LabelCard'
 import { LabelFilter } from './LabelFilter'
+<<<<<<< HEAD
 import { Input } from '@/components/ui/input'
+=======
+import { Input } from '@/components/ui/Input'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { Button } from '@/components/ui/button'
 import { Spinner } from '@/components/ui/Spinner'
 import { Search, X } from 'lucide-react'

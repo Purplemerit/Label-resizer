@@ -1,7 +1,11 @@
 'use client'
 
 import React, { useState } from 'react'
+<<<<<<< HEAD
 import { Input } from '@/components/ui/input'
+=======
+import { Input } from '@/components/ui/Input'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { Button } from '@/components/ui/button'
 import { X } from 'lucide-react'
 import { cn } from '@/lib/utils/cn'
@@ -92,6 +96,7 @@ export const SaveDesignModal: React.FC<SaveDesignModalProps> = ({
 
         {/* Form */}
         <div className="space-y-4">
+<<<<<<< HEAD
           <div className="space-y-2">
             <label className="text-sm font-medium">Design Name</label>
             <Input
@@ -108,6 +113,22 @@ export const SaveDesignModal: React.FC<SaveDesignModalProps> = ({
             />
             {errors.name && <p className="text-sm text-red-600">{errors.name}</p>}
           </div>
+=======
+          <Input
+            label="Design Name"
+            type="text"
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value)
+              if (errors.name) setErrors({ ...errors, name: '' })
+            }}
+            error={errors.name}
+            placeholder="My Label Design"
+            required
+            disabled={loading}
+            maxLength={100}
+          />
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
           <div>
             <label className="block text-sm font-semibold text-[var(--color-gray-700)] mb-2">

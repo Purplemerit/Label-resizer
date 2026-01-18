@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { NextResponse } from 'next/server'
+=======
+import { NextRequest, NextResponse } from 'next/server'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 
@@ -9,7 +13,11 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
  * POST /api/auth/logout
  * Handle user logout
  */
+<<<<<<< HEAD
 export async function POST() {
+=======
+export async function POST(request: NextRequest) {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   try {
     const cookieStore = await cookies()
 

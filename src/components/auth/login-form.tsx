@@ -1,7 +1,11 @@
 "use client"
 
 import { useState } from "react"
+<<<<<<< HEAD
 import { useSearchParams } from "next/navigation"
+=======
+import { useRouter, useSearchParams } from "next/navigation"
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -11,6 +15,10 @@ import Link from "next/link"
 import { supabase } from "@/lib/supabase/client"
 
 export function LoginForm() {
+<<<<<<< HEAD
+=======
+  const router = useRouter()
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   const searchParams = useSearchParams()
   const redirectTo = searchParams.get("redirect") || "/dashboard"
   const [showPassword, setShowPassword] = useState(false)
@@ -20,7 +28,10 @@ export function LoginForm() {
     email: "",
     password: "",
     rememberMe: false,
+<<<<<<< HEAD
     loginType: "user" as "user" | "admin",
+=======
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   })
 
   const handleOAuth = async (provider: 'google' | 'github') => {
@@ -55,6 +66,7 @@ export function LoginForm() {
       }
 
       if (data.user) {
+<<<<<<< HEAD
         // Check if user is admin and redirect accordingly
         const { data: profile } = await supabase
           .from('profiles')
@@ -81,6 +93,10 @@ export function LoginForm() {
             window.location.href = redirectTo
           }
         }
+=======
+        await new Promise((resolve) => setTimeout(resolve, 100))
+        window.location.href = redirectTo
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       }
     } catch (err) {
       setError("An unexpected error occurred")
@@ -90,6 +106,7 @@ export function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+<<<<<<< HEAD
       {/* Login Type Selector */}
       <div className="space-y-2">
         <label className="block text-sm font-medium text-foreground mb-3">
@@ -120,6 +137,8 @@ export function LoginForm() {
           </button>
         </div>
       </div>
+=======
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       {/* Social Login Buttons */}
       <div className="grid grid-cols-2 gap-3">
         <Button type="button" variant="outline" className="w-full bg-transparent" onClick={() => handleOAuth('google')}>

@@ -1,6 +1,10 @@
 "use client"
 
+<<<<<<< HEAD
 import { useState } from "react"
+=======
+import { useState, useEffect } from "react"
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { supabase } from "@/lib/supabase/client"
 import { FileJson, FileSpreadsheet, FileText, Download } from "lucide-react"
 
@@ -14,7 +18,11 @@ export function ExportSettings() {
   })
   const [exporting, setExporting] = useState(false)
 
+<<<<<<< HEAD
   const toggleDataType = (type: keyof typeof dataTypes) => {
+=======
+  const toggleDataType = (type: string) => {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     setDataTypes(prev => ({ ...prev, [type]: !prev[type] }))
   }
 
@@ -148,7 +156,11 @@ export function ExportSettings() {
                 <input
                   type="checkbox"
                   checked={dataTypes[option.key as keyof typeof dataTypes]}
+<<<<<<< HEAD
                   onChange={() => toggleDataType(option.key as keyof typeof dataTypes)}
+=======
+                  onChange={() => toggleDataType(option.key)}
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                   className="mt-1"
                 />
                 <div>

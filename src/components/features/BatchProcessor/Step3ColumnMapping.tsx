@@ -21,6 +21,10 @@ export const Step3ColumnMapping: React.FC<Step3ColumnMappingProps> = ({
   mapping,
   onMappingChange,
 }) => {
+<<<<<<< HEAD
+=======
+  const [template, setTemplate] = useState<any>(null)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -36,7 +40,11 @@ export const Step3ColumnMapping: React.FC<Step3ColumnMappingProps> = ({
     try {
       const result = await loadDesign(templateId)
       if (result.success && result.data) {
+<<<<<<< HEAD
         // Template loaded successfully
+=======
+        setTemplate(result.data)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       } else {
         setError(result.error || 'Failed to load template')
       }
@@ -47,13 +55,47 @@ export const Step3ColumnMapping: React.FC<Step3ColumnMappingProps> = ({
     }
   }
 
+<<<<<<< HEAD
+=======
+  // Extract text element properties from template to identify what needs mapping
+  const getTextElementFields = () => {
+    if (!template?.elements) return []
+    // Parse elements if it's a string
+    const elements = typeof template.elements === 'string' 
+      ? JSON.parse(template.elements) 
+      : template.elements
+    if (!Array.isArray(elements)) return []
+    
+    const textElements = elements.filter((el: any) => el.type === 'text')
+    const fields: string[] = []
+    textElements.forEach((el: any) => {
+      if (el.properties?.text && el.properties.text.includes('{{')) {
+        // Extract variables like {{product_name}}
+        const matches = el.properties.text.match(/\{\{(\w+)\}\}/g)
+        if (matches) {
+          matches.forEach((match: string) => {
+            const field = match.replace(/[{}]/g, '')
+            if (!fields.includes(field)) {
+              fields.push(field)
+            }
+          })
+        }
+      }
+    })
+    return fields
+  }
+
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   const getCsvColumns = () => {
     if (fileData.length === 0) return []
     return Object.keys(fileData[0])
   }
 
+<<<<<<< HEAD
   const sampleRow = fileData[0] || {}
 
+=======
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   const handleMappingChange = (csvColumn: string, templateField: string) => {
     const newMapping = { ...mapping, [csvColumn]: templateField }
     onMappingChange(newMapping)
@@ -77,9 +119,17 @@ export const Step3ColumnMapping: React.FC<Step3ColumnMappingProps> = ({
   }
 
   const csvColumns = getCsvColumns()
+<<<<<<< HEAD
 
   // If no template fields found, use CSV columns as available options
 
+=======
+  const templateFields = getTextElementFields()
+
+  // If no template fields found, use CSV columns as available options
+  const availableFields = templateFields.length > 0 ? templateFields : csvColumns
+  const sampleRow = fileData[0] || {}
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
   return (
     <div>

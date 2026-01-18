@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 import { generateBatchPDF } from '@/lib/pdf/generator'
+<<<<<<< HEAD
 import type { TemplateData } from '@/lib/pdf/generator'
+=======
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
 /**
  * POST /api/cron/process-scheduled-batches
@@ -83,7 +86,11 @@ export async function POST(request: NextRequest) {
               width_px: data.labels?.width_px_203dpi || 812,
               height_px: data.labels?.height_px_203dpi || 1218,
               dpi: 203,
+<<<<<<< HEAD
             } as TemplateData
+=======
+            }
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           }
         } else if (scheduledJob.design_id) {
           const { data } = await supabase
@@ -100,7 +107,11 @@ export async function POST(request: NextRequest) {
               width_px: data.labels?.width_px_203dpi || 812,
               height_px: data.labels?.height_px_203dpi || 1218,
               dpi: 203,
+<<<<<<< HEAD
             } as TemplateData
+=======
+            }
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           }
         }
 

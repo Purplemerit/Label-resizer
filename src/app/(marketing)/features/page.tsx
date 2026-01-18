@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import React from 'react'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { FeaturesSection } from '@/components/sections/marketing/FeaturesSection'

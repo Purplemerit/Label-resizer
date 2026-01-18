@@ -11,6 +11,10 @@ import { Undo2, Redo2, ZoomIn, ZoomOut, Save } from 'lucide-react'
 import { saveDesign, saveDraft, updateDesign } from '@/server/actions/designs'
 import { SaveDesignModal } from './SaveDesignModal'
 import { DownloadButton } from './DownloadButton'
+<<<<<<< HEAD
+=======
+import { PrintModal } from './PrintModal'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
 export interface LabelEditorProps {
   className?: string
@@ -66,9 +70,12 @@ export const LabelEditor: React.FC<LabelEditorProps> = ({ className }) => {
 
   // Keyboard shortcuts
   useEffect(() => {
+<<<<<<< HEAD
     const canUndo = history.undo_stack.length > 0
     const canRedo = history.redo_stack.length > 0
     
+=======
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     const handleKeyDown = (e: KeyboardEvent) => {
       // Undo: Ctrl+Z or Cmd+Z
       if ((e.ctrlKey || e.metaKey) && e.key === 'z' && !e.shiftKey) {
@@ -93,7 +100,11 @@ export const LabelEditor: React.FC<LabelEditorProps> = ({ className }) => {
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
+<<<<<<< HEAD
   }, [history, undo, redo])
+=======
+  }, [canUndo, canRedo, undo, redo])
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
   const handleZoomIn = () => {
     setCanvasZoom(Math.min(400, canvas.zoom_level + 25))

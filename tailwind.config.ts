@@ -22,6 +22,7 @@ const config: Config = {
       fontSize: {
         '8xl': '6rem',
       },
+<<<<<<< HEAD
       animation: {
         'marquee': 'marquee 30s linear infinite',
       },
@@ -35,6 +36,8 @@ const config: Config = {
           '100%': { transform: 'translateX(-100%)' },
         },
       },
+=======
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     },
   },
   plugins: [],

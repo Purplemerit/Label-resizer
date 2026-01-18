@@ -1,7 +1,11 @@
 'use client'
 
 import React from 'react'
+<<<<<<< HEAD
 import { Card, CardContent } from '@/components/ui/card'
+=======
+import { Card } from '@/components/ui/Card'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Printer, Edit, Trash2, TestTube } from 'lucide-react'
@@ -72,7 +76,11 @@ export const PrinterList: React.FC<PrinterListProps> = ({ initialPrinters }) => 
   if (printers.length === 0) {
     return (
       <Card>
+<<<<<<< HEAD
         <CardContent className="text-center py-12">
+=======
+        <Card.Body className="text-center py-12">
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           <Printer size={48} className="mx-auto mb-4 text-[var(--color-text-tertiary)]" />
           <h3 className="text-lg font-semibold text-[var(--color-text-primary)] mb-2">
             No printers configured
@@ -83,7 +91,11 @@ export const PrinterList: React.FC<PrinterListProps> = ({ initialPrinters }) => 
           <Button variant="primary" onClick={() => router.push('/printers/new')}>
             Add Your First Printer
           </Button>
+<<<<<<< HEAD
         </CardContent>
+=======
+        </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       </Card>
     )
   }
@@ -91,8 +103,13 @@ export const PrinterList: React.FC<PrinterListProps> = ({ initialPrinters }) => 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {printers.map((printer) => (
+<<<<<<< HEAD
         <Card key={printer.id}>
           <CardContent>
+=======
+        <Card key={printer.id} variant="elevated">
+          <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
             <div className="flex items-start justify-between mb-4">
               <div className="flex items-center gap-3">
                 <div
@@ -121,7 +138,11 @@ export const PrinterList: React.FC<PrinterListProps> = ({ initialPrinters }) => 
                 </div>
               </div>
               {printer.is_default && (
+<<<<<<< HEAD
                 <Badge variant="default" className="text-xs bg-green-100 text-green-800">
+=======
+                <Badge variant="success" className="text-xs">
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                   Default
                 </Badge>
               )}
@@ -131,7 +152,11 @@ export const PrinterList: React.FC<PrinterListProps> = ({ initialPrinters }) => 
               <div className="flex items-center justify-between">
                 <span className="text-[var(--color-text-secondary)]">Status:</span>
                 <Badge
+<<<<<<< HEAD
                   variant={printer.is_online ? 'default' : 'destructive'}
+=======
+                  variant={printer.is_online ? 'success' : 'error'}
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                   className="text-xs"
                 >
                   {printer.is_online ? 'Online' : 'Offline'}
@@ -185,7 +210,11 @@ export const PrinterList: React.FC<PrinterListProps> = ({ initialPrinters }) => 
                 <Trash2 size={16} />
               </Button>
             </div>
+<<<<<<< HEAD
           </CardContent>
+=======
+          </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         </Card>
       ))}
     </div>

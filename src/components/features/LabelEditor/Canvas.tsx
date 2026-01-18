@@ -139,7 +139,11 @@ export const Canvas: React.FC<CanvasProps> = ({ className }) => {
     })
 
     // Draw selection outline
+<<<<<<< HEAD
     const selectedElement = elements.find((el: EditorElement) => el.id === selectedElementId)
+=======
+    const selectedElement = elements.find((el) => el.id === selectedElementId)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     if (selectedElement) {
       drawSelectionOutline(ctx, selectedElement)
     }
@@ -224,7 +228,11 @@ export const Canvas: React.FC<CanvasProps> = ({ className }) => {
 
     // Check if click is on a resize handle first
     if (selectedElementId) {
+<<<<<<< HEAD
       const selectedElement = elements.find((el: EditorElement) => el.id === selectedElementId)
+=======
+      const selectedElement = elements.find((el) => el.id === selectedElementId)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       if (selectedElement) {
         const handle = isPointInResizeHandle(x, y, selectedElement)
         if (handle) {
@@ -283,7 +291,11 @@ export const Canvas: React.FC<CanvasProps> = ({ className }) => {
   const handleMouseDown = (e: React.MouseEvent<HTMLCanvasElement>) => {
     if (selectedElementId) {
       const { x, y } = getClickCoordinates(e)
+<<<<<<< HEAD
       const selectedElement = elements.find((el: EditorElement) => el.id === selectedElementId)
+=======
+      const selectedElement = elements.find((el) => el.id === selectedElementId)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       
       if (selectedElement) {
         // Check if clicking on resize handle
@@ -306,7 +318,11 @@ export const Canvas: React.FC<CanvasProps> = ({ className }) => {
     const { x: currentX, y: currentY } = getClickCoordinates(e)
 
     if (isResizing && selectedElementId && resizeHandle) {
+<<<<<<< HEAD
       const selectedElement = elements.find((el: EditorElement) => el.id === selectedElementId)
+=======
+      const selectedElement = elements.find((el) => el.id === selectedElementId)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       if (!selectedElement) return
 
       const deltaX = currentX - dragStart.x
@@ -363,7 +379,11 @@ export const Canvas: React.FC<CanvasProps> = ({ className }) => {
       const deltaX = currentX - dragStart.x
       const deltaY = currentY - dragStart.y
 
+<<<<<<< HEAD
       const selectedElement = elements.find((el: EditorElement) => el.id === selectedElementId)
+=======
+      const selectedElement = elements.find((el) => el.id === selectedElementId)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       if (selectedElement) {
         updateElement(selectedElementId, {
           x: selectedElement.x + deltaX,
@@ -387,7 +407,11 @@ export const Canvas: React.FC<CanvasProps> = ({ className }) => {
       if (!selectedElementId) return
       if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
         e.preventDefault()
+<<<<<<< HEAD
         const selectedElement = elements.find((el: EditorElement) => el.id === selectedElementId)
+=======
+        const selectedElement = elements.find((el) => el.id === selectedElementId)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         if (!selectedElement) return
 
         const nudgeAmount = e.shiftKey ? 10 : 1 // Shift = 10px, normal = 1px
@@ -441,7 +465,11 @@ export const Canvas: React.FC<CanvasProps> = ({ className }) => {
           width: 200,
           height: 40,
           rotation: 0,
+<<<<<<< HEAD
           z_index: Math.max(...elements.map((e: EditorElement) => e.z_index), 0) + 1,
+=======
+          z_index: Math.max(...elements.map((e) => e.z_index), 0) + 1,
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           visible: true,
           properties: {
             text: 'Sample Text',

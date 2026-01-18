@@ -4,7 +4,12 @@
  */
 
 import PDFDocument from 'pdfkit'
+<<<<<<< HEAD
 import { WritableStreamBuffer } from 'stream-buffers'
+=======
+import { StreamBuffers } from 'stream-buffers'
+import JsBarcode from 'jsbarcode'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { EditorElement } from '@/types/editor'
 
 export interface DesignPDFOptions {
@@ -19,7 +24,11 @@ export interface DesignPDFOptions {
  * Generate PDF from label design
  */
 export async function generateDesignPDF(options: DesignPDFOptions): Promise<Buffer> {
+<<<<<<< HEAD
   const { elements, width_px, height_px, dpi } = options
+=======
+  const { elements, width_px, height_px, dpi, format = 'pdf' } = options
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
   // Convert pixels to points (1 inch = 72 points)
   // At 300 DPI: 300px = 1 inch = 72 points, so 1px = 72/300 = 0.24 points
@@ -29,7 +38,11 @@ export async function generateDesignPDF(options: DesignPDFOptions): Promise<Buff
   const height_pt = height_px * pxToPoints
 
   return new Promise((resolve, reject) => {
+<<<<<<< HEAD
     const writeStream = new WritableStreamBuffer({
+=======
+    const writeStream = new StreamBuffers.WritableStreamBuffer({
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       initialSize: 100 * 1024, // 100KB
       incrementAmount: 10 * 1024, // 10KB
     })
@@ -101,8 +114,14 @@ function renderTextElement(
 ) {
   if (element.type !== 'text') return
 
+<<<<<<< HEAD
   const fontSize = (element.properties.fontSize || 16) * pxToPoints
   const width = (element.width || 200) * pxToPoints
+=======
+  const fontSize = (element.fontSize || 16) * pxToPoints
+  const width = (element.width || 200) * pxToPoints
+  const height = (element.height || 50) * pxToPoints
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   const rotation = element.rotation || 0
 
   doc.save()
@@ -112,6 +131,7 @@ function renderTextElement(
   }
 
   // Set font
+<<<<<<< HEAD
   const fontFamily = element.properties.font || 'Helvetica'
   const fontWeight = element.properties.fontWeight || 400
   const font = fontWeight >= 600 ? `${fontFamily}-Bold` : fontFamily
@@ -120,13 +140,27 @@ function renderTextElement(
   // Set color
   if (element.properties.color) {
     const color = hexToRgb(element.properties.color)
+=======
+  const fontFamily = element.fontFamily || 'Helvetica'
+  const fontWeight = element.fontWeight || 'normal'
+  const font = fontWeight === 'bold' ? `${fontFamily}-Bold` : fontFamily
+  doc.font(font).fontSize(fontSize)
+
+  // Set color
+  if (element.color) {
+    const color = hexToRgb(element.color)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     if (color) {
       doc.fillColor(`rgb(${color.r}, ${color.g}, ${color.b})`)
     }
   }
 
   // Alignment
+<<<<<<< HEAD
   const align = element.properties.align || 'left'
+=======
+  const align = element.textAlign || 'left'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   let textX = 0
   if (align === 'center') {
     textX = width / 2
@@ -135,11 +169,19 @@ function renderTextElement(
   }
 
   // Render text
+<<<<<<< HEAD
   if (element.properties.text) {
     doc.text(element.properties.text, textX, 0, {
       width: width,
       align: align as 'left' | 'center' | 'right' | 'justify',
       lineGap: (element.properties.lineHeight || 1.2) * fontSize - fontSize,
+=======
+  if (element.content) {
+    doc.text(element.content, textX, 0, {
+      width: width,
+      align: align as 'left' | 'center' | 'right' | 'justify',
+      lineGap: (element.lineHeight || 1.2) * fontSize - fontSize,
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     })
   }
 
@@ -156,7 +198,11 @@ async function renderImageElement(
   y: number,
   pxToPoints: number
 ) {
+<<<<<<< HEAD
   if (element.type !== 'image' || !element.properties.image_url) return
+=======
+  if (element.type !== 'image' || !element.src) return
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
   try {
     const width = (element.width || 100) * pxToPoints
@@ -170,26 +216,47 @@ async function renderImageElement(
     }
 
     // If src is a URL, fetch it
+<<<<<<< HEAD
     if (element.properties.image_url.startsWith('http') || element.properties.image_url.startsWith('https')) {
       const response = await fetch(element.properties.image_url)
+=======
+    if (element.src.startsWith('http') || element.src.startsWith('https')) {
+      const response = await fetch(element.src)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       const arrayBuffer = await response.arrayBuffer()
       const buffer = Buffer.from(arrayBuffer)
       doc.image(buffer, -width / 2, -height / 2, {
         width: width,
         height: height,
+<<<<<<< HEAD
       })
     } else if (element.properties.image_url.startsWith('data:')) {
       // Base64 data URL
       const base64Data = element.properties.image_url.split(',')[1]
+=======
+        opacity: element.opacity !== undefined ? element.opacity : 1,
+      })
+    } else if (element.src.startsWith('data:')) {
+      // Base64 data URL
+      const base64Data = element.src.split(',')[1]
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       const buffer = Buffer.from(base64Data, 'base64')
       doc.image(buffer, -width / 2, -height / 2, {
         width: width,
         height: height,
+<<<<<<< HEAD
+=======
+        opacity: element.opacity !== undefined ? element.opacity : 1,
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       })
     } else {
       // Assume it's a file path in Supabase Storage
       // This would need to be fetched first
+<<<<<<< HEAD
       console.warn('Image path not fully supported:', element.properties.image_url)
+=======
+      console.warn('Image path not fully supported:', element.src)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     }
 
     doc.restore()
@@ -207,12 +274,24 @@ function renderBarcodeElement(
   element: EditorElement,
   x: number,
   y: number,
+<<<<<<< HEAD
   _pxToPoints: number,
   _dpi: number
 ) {
   if (element.type !== 'barcode' || !element.properties?.barcode_value) return
 
   try {
+=======
+  pxToPoints: number,
+  dpi: number
+) {
+  if (element.type !== 'barcode' || !element.value) return
+
+  try {
+    const width = (element.width || 200) * pxToPoints
+    const height = (element.height || 50) * pxToPoints
+
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     // Generate barcode as canvas/image
     // For now, we'll use a placeholder approach
     // In production, you'd generate the barcode image first
@@ -222,7 +301,11 @@ function renderBarcodeElement(
     // For now, render as text placeholder
     doc.save()
     doc.fontSize(10)
+<<<<<<< HEAD
     doc.text(element.properties?.barcode_value || 'BARCODE', x, y)
+=======
+    doc.text(element.value || 'BARCODE', x, y)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     doc.restore()
 
     // TODO: Implement actual barcode image generation
@@ -255,6 +338,7 @@ function renderShapeElement(
   }
 
   // Set colors
+<<<<<<< HEAD
   const fillColor = element.properties?.fill_color
     ? hexToRgb(element.properties.fill_color)
     : null
@@ -264,6 +348,17 @@ function renderShapeElement(
   const strokeWidth = (element.properties?.border_width || 1) * pxToPoints
 
   switch (element.properties?.shape_type) {
+=======
+  const fillColor = element.fillColor
+    ? hexToRgb(element.fillColor)
+    : null
+  const strokeColor = element.strokeColor
+    ? hexToRgb(element.strokeColor)
+    : null
+  const strokeWidth = (element.strokeWidth || 1) * pxToPoints
+
+  switch (element.shapeType) {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     case 'rectangle':
       if (fillColor) {
         doc.rect(-width / 2, -height / 2, width, height)

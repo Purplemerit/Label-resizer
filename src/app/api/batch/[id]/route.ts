@@ -11,7 +11,11 @@ interface RouteParams {
  * GET /api/batch/[id]
  * Fetch batch job status and details by ID
  */
+<<<<<<< HEAD
 export async function GET(_request: NextRequest, { params }: RouteParams) {
+=======
+export async function GET(request: NextRequest, { params }: RouteParams) {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   try {
     const { id } = await params
     const { supabase, session } = await createUserClient()

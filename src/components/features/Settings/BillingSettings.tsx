@@ -1,7 +1,11 @@
 'use client'
 
 import React from 'react'
+<<<<<<< HEAD
 import { Card, CardHeader, CardContent } from '@/components/ui/card'
+=======
+import { Card } from '@/components/ui/card'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { ProfileData } from './SettingsTabs'
@@ -26,12 +30,21 @@ export const BillingSettings: React.FC<BillingSettingsProps> = ({
     <div className="space-y-6">
       {/* Current Plan */}
       <Card>
+<<<<<<< HEAD
         <CardHeader>
           <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
             Current Plan
           </h2>
         </CardHeader>
         <CardContent>
+=======
+        <Card.Header>
+          <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
+            Current Plan
+          </h2>
+        </Card.Header>
+        <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           <div className="flex items-center justify-between mb-6">
             <div>
               <div className="flex items-center gap-3 mb-2">
@@ -39,8 +52,13 @@ export const BillingSettings: React.FC<BillingSettingsProps> = ({
                   {tier === 'free' ? 'Starter' : tier === 'pro' ? 'Professional' : 'Enterprise'}
                 </h3>
                 <Badge
+<<<<<<< HEAD
                   variant={status === 'active' ? 'default' : 'destructive'}
                   className={`text-xs ${status === 'active' ? 'bg-green-100 text-green-800' : ''}`}
+=======
+                  variant={status === 'active' ? 'success' : 'error'}
+                  className="text-xs"
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                 >
                   {status === 'active' ? 'Active' : 'Inactive'}
                 </Badge>
@@ -144,7 +162,11 @@ export const BillingSettings: React.FC<BillingSettingsProps> = ({
               </Link>
             </div>
           )}
+<<<<<<< HEAD
         </CardContent>
+=======
+        </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       </Card>
     </div>
   )

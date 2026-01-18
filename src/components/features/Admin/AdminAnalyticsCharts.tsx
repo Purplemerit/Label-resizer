@@ -133,7 +133,11 @@ export const AdminAnalyticsCharts: React.FC<AnalyticsChartsProps> = ({ data }) =
                 fill="#8884d8"
                 dataKey="value"
               >
+<<<<<<< HEAD
                 {revenueData.map((_, index) => (
+=======
+                {revenueData.map((entry, index) => (
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}
               </Pie>

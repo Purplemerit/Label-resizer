@@ -1,11 +1,19 @@
 'use client'
 
 import React from 'react'
+<<<<<<< HEAD
 import { Card, CardContent } from '@/components/ui/card'
+=======
+import { Card } from '@/components/ui/Card'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/Tabs'
 import { Download, Star, Trash2, Edit } from 'lucide-react'
 import Link from 'next/link'
+<<<<<<< HEAD
+=======
+import Image from 'next/image'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
 export interface Template {
   id: string
@@ -76,8 +84,13 @@ export const TemplatesList: React.FC<TemplatesListProps> = ({
   }
 
   const renderTemplateCard = (template: Template, isOwn: boolean = false) => (
+<<<<<<< HEAD
     <Card key={template.id}>
       <CardContent>
+=======
+    <Card key={template.id} variant="elevated">
+      <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         <div className="aspect-video bg-gray-100 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
           {template.thumbnail_url ? (
             <img
@@ -156,7 +169,11 @@ export const TemplatesList: React.FC<TemplatesListProps> = ({
             </>
           )}
         </div>
+<<<<<<< HEAD
       </CardContent>
+=======
+      </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     </Card>
   )
 
@@ -174,14 +191,22 @@ export const TemplatesList: React.FC<TemplatesListProps> = ({
       <TabsContent value="my-templates">
         {userTemplates.length === 0 ? (
           <Card>
+<<<<<<< HEAD
             <CardContent className="text-center py-12">
+=======
+            <Card.Body className="text-center py-12">
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
               <p className="text-[var(--color-text-secondary)] mb-4">
                 You haven't created any templates yet.
               </p>
               <Link href="/editor">
                 <Button variant="primary">Create Your First Template</Button>
               </Link>
+<<<<<<< HEAD
             </CardContent>
+=======
+            </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           </Card>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
@@ -193,11 +218,19 @@ export const TemplatesList: React.FC<TemplatesListProps> = ({
       <TabsContent value="public-templates">
         {publicTemplates.length === 0 ? (
           <Card>
+<<<<<<< HEAD
             <CardContent className="text-center py-12">
               <p className="text-[var(--color-text-secondary)]">
                 No public templates available yet.
               </p>
             </CardContent>
+=======
+            <Card.Body className="text-center py-12">
+              <p className="text-[var(--color-text-secondary)]">
+                No public templates available yet.
+              </p>
+            </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           </Card>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">

@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createUserClient } from '@/lib/supabase/server'
 import { createClient } from '@supabase/supabase-js'
+<<<<<<< HEAD
 import { rateLimitAPI, API_RATE_LIMITS } from '@/lib/rateLimit/apiRateLimit'
+=======
+import { rateLimitAPI, API_RATE_LIMITS, addRateLimitHeaders } from '@/lib/rateLimit/apiRateLimit'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
@@ -19,7 +23,11 @@ export async function GET(request: NextRequest) {
       return rateLimitResult
     }
 
+<<<<<<< HEAD
     const { session } = await createUserClient()
+=======
+    const { supabase, session } = await createUserClient()
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
     if (!session?.user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })

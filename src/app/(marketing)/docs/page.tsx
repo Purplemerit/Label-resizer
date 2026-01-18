@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 import Link from 'next/link'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Card } from '@/components/ui/card'
+=======
+import React from 'react'
+import Link from 'next/link'
+import { Header } from '@/components/layout/Header'
+import { Footer } from '@/components/layout/Footer'
+import { Card } from '@/components/ui/Card'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { Button } from '@/components/ui/button'
 import { FileText, Code, Book, HelpCircle } from 'lucide-react'
 
@@ -25,8 +33,13 @@ export default function DocsPage() {
           <div className="container mx-auto max-w-6xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <Link href="/docs/api">
+<<<<<<< HEAD
                 <Card className="h-full hover:shadow-lg transition-shadow">
                   <div className="p-6">
+=======
+                <Card variant="elevated" className="h-full hover:shadow-lg transition-shadow">
+                  <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                     <div className="flex items-center gap-4 mb-4">
                       <div className="w-12 h-12 bg-[var(--color-primary-100)] rounded-lg flex items-center justify-center">
                         <Code size={24} className="text-[var(--color-primary-600)]" />
@@ -44,12 +57,21 @@ export default function DocsPage() {
                     <Button variant="outline" className="mt-4 w-full">
                       View API Docs
                     </Button>
+<<<<<<< HEAD
                   </div>
                 </Card>
               </Link>
 
               <Card className="h-full">
                 <div className="p-6">
+=======
+                  </Card.Body>
+                </Card>
+              </Link>
+
+              <Card variant="elevated" className="h-full">
+                <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 bg-[var(--color-success-100)] rounded-lg flex items-center justify-center">
                       <Book size={24} className="text-[var(--color-success-600)]" />
@@ -67,11 +89,19 @@ export default function DocsPage() {
                   <Button variant="outline" className="mt-4 w-full" disabled>
                     Coming Soon
                   </Button>
+<<<<<<< HEAD
                 </div>
               </Card>
 
               <Card className="h-full">
                 <div className="p-6">
+=======
+                </Card.Body>
+              </Card>
+
+              <Card variant="elevated" className="h-full">
+                <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 bg-[var(--color-info-100)] rounded-lg flex items-center justify-center">
                       <FileText size={24} className="text-[var(--color-info-600)]" />
@@ -89,11 +119,19 @@ export default function DocsPage() {
                   <Button variant="outline" className="mt-4 w-full" disabled>
                     Coming Soon
                   </Button>
+<<<<<<< HEAD
                 </div>
               </Card>
 
               <Card className="h-full">
                 <div className="p-6">
+=======
+                </Card.Body>
+              </Card>
+
+              <Card variant="elevated" className="h-full">
+                <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 bg-[var(--color-warning-100)] rounded-lg flex items-center justify-center">
                       <HelpCircle size={24} className="text-[var(--color-warning-600)]" />
@@ -110,7 +148,11 @@ export default function DocsPage() {
                   <Button variant="outline" className="mt-4 w-full" disabled>
                     Coming Soon
                   </Button>
+<<<<<<< HEAD
                 </div>
+=======
+                </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
               </Card>
             </div>
           </div>

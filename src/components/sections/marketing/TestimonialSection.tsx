@@ -1,5 +1,9 @@
 import React from 'react'
+<<<<<<< HEAD
 import { Card, CardContent } from '@/components/ui/card'
+=======
+import { Card } from '@/components/ui/Card'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
 export interface Testimonial {
   name: string
@@ -62,8 +66,13 @@ export const TestimonialSection: React.FC<TestimonialSectionProps> = ({
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
+<<<<<<< HEAD
             <Card key={index}>
               <CardContent>
+=======
+            <Card key={index} variant="elevated">
+              <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                 <p className="text-[var(--color-text-secondary)] mb-6 italic">
                   "{testimonial.content}"
                 </p>
@@ -90,7 +99,11 @@ export const TestimonialSection: React.FC<TestimonialSectionProps> = ({
                     </p>
                   </div>
                 </div>
+<<<<<<< HEAD
               </CardContent>
+=======
+              </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
             </Card>
           ))}
         </div>

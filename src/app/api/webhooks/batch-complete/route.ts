@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
+<<<<<<< HEAD
 import { createServerClient } from '@/lib/supabase/server'
+=======
+import { createUserClient, createServerClient } from '@/lib/supabase/server'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { sendBatchCompleteEmail } from '@/server/actions/email'
 
 /**
@@ -69,8 +73,13 @@ export async function POST(request: NextRequest) {
       try {
         await sendBatchCompleteEmail({
           email: (batchJob.profiles as any).email,
+<<<<<<< HEAD
           batchJobName: batchJob.id,
           totalLabels: batchJob.total_labels || 0,
+=======
+          batchId: batchJob.id,
+          labelCount: batchJob.total_labels || 0,
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           downloadUrl: outputFileUrl,
         })
       } catch (emailError) {

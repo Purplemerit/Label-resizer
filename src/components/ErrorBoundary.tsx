@@ -1,7 +1,12 @@
 'use client'
 
+<<<<<<< HEAD
 import { Component, ErrorInfo, ReactNode } from 'react'
 import { Card, CardContent } from '@/components/ui/card'
+=======
+import React, { Component, ErrorInfo, ReactNode } from 'react'
+import { Card } from '@/components/ui/Card'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { Button } from '@/components/ui/button'
 import { AlertTriangle } from 'lucide-react'
 
@@ -54,7 +59,11 @@ export class ErrorBoundary extends Component<Props, State> {
       return (
         <div className="min-h-screen flex items-center justify-center p-4 bg-[var(--color-bg-secondary)]">
           <Card className="max-w-md w-full">
+<<<<<<< HEAD
             <CardContent className="text-center">
+=======
+            <Card.Body className="text-center">
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
               <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <AlertTriangle size={32} className="text-red-600" />
               </div>
@@ -82,7 +91,11 @@ export class ErrorBoundary extends Component<Props, State> {
                   Go to Dashboard
                 </Button>
               </div>
+<<<<<<< HEAD
             </CardContent>
+=======
+            </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           </Card>
         </div>
       )

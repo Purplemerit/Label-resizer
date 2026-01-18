@@ -109,7 +109,11 @@ export async function updateDesign(designId: string, params: Partial<SaveDesignP
  */
 export async function saveDraft(designId: string | null, params: SaveDesignParams) {
   try {
+<<<<<<< HEAD
     const { session } = await createUserClient()
+=======
+    const { supabase, session } = await createUserClient()
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
     if (!session?.user) {
       return { success: false, error: 'Not authenticated' }

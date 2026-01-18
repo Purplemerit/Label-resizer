@@ -36,6 +36,10 @@ export default function EditorPage() {
   const [name, setName] = useState('New Label')
   const [selected, setSelected] = useState<number | null>(null)
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 })
+<<<<<<< HEAD
+=======
+  const fileInputRef = useState<HTMLInputElement | null>(null)[0]
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   const [saving, setSaving] = useState(false)
   const router = useRouter()
 

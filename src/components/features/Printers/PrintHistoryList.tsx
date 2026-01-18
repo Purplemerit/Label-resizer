@@ -1,9 +1,16 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+<<<<<<< HEAD
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Printer, Clock, X } from 'lucide-react'
+=======
+import { Card } from '@/components/ui/Card'
+import { Button } from '@/components/ui/button'
+import { Spinner } from '@/components/ui/Spinner'
+import { Printer, Download, Clock, X } from 'lucide-react'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { supabase } from '@/lib/supabase/client'
 import { format } from 'date-fns'
 
@@ -93,7 +100,11 @@ export const PrintHistoryList: React.FC = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-12">
+<<<<<<< HEAD
         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+=======
+        <Spinner />
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       </div>
     )
   }
@@ -101,9 +112,15 @@ export const PrintHistoryList: React.FC = () => {
   if (error) {
     return (
       <Card className="border-red-200">
+<<<<<<< HEAD
         <CardContent>
           <p className="text-sm text-red-600">{error}</p>
         </CardContent>
+=======
+        <Card.Body>
+          <p className="text-sm text-red-600">{error}</p>
+        </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       </Card>
     )
   }
@@ -111,12 +128,20 @@ export const PrintHistoryList: React.FC = () => {
   if (printHistory.length === 0) {
     return (
       <Card>
+<<<<<<< HEAD
         <CardContent className="text-center py-12">
+=======
+        <Card.Body className="text-center py-12">
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           <Printer size={48} className="mx-auto text-gray-400 mb-4" />
           <p className="text-[var(--color-text-secondary)]">
             No print history found. Your print jobs will appear here.
           </p>
+<<<<<<< HEAD
         </CardContent>
+=======
+        </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       </Card>
     )
   }
@@ -152,7 +177,11 @@ export const PrintHistoryList: React.FC = () => {
       <div className="space-y-3">
         {printHistory.map((item) => (
           <Card key={item.id}>
+<<<<<<< HEAD
             <CardContent>
+=======
+            <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4 flex-1">
                   <div
@@ -200,7 +229,11 @@ export const PrintHistoryList: React.FC = () => {
                   )}
                 </div>
               </div>
+<<<<<<< HEAD
             </CardContent>
+=======
+            </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           </Card>
         ))}
       </div>

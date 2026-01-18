@@ -2,7 +2,11 @@
 
 import React from 'react'
 import { Label } from '@/lib/constants/labels'
+<<<<<<< HEAD
 import { Card, CardContent } from '@/components/ui/card'
+=======
+import { Card } from '@/components/ui/Card'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils/cn'
@@ -56,10 +60,17 @@ export const LabelCard: React.FC<LabelCardProps> = ({
   }
 
   const getPrintMethodBadge = (method: string) => {
+<<<<<<< HEAD
     const variants: Record<string, 'default' | 'secondary' | 'outline' | 'destructive'> = {
       thermal: 'default',
       inkjet: 'secondary',
       desktop: 'outline',
+=======
+    const variants: Record<string, 'default' | 'success' | 'warning' | 'info'> = {
+      thermal: 'success',
+      inkjet: 'info',
+      desktop: 'default',
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     }
     return variants[method] || 'default'
   }
@@ -75,7 +86,11 @@ export const LabelCard: React.FC<LabelCardProps> = ({
       )}
       onClick={handleCardClick}
     >
+<<<<<<< HEAD
       <CardContent>
+=======
+      <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         {/* Thumbnail placeholder */}
         <div className="w-full h-24 bg-gray-100 rounded-md mb-3 flex items-center justify-center border border-gray-200">
           <div className="text-center">
@@ -125,7 +140,11 @@ export const LabelCard: React.FC<LabelCardProps> = ({
             <FavoriteButton labelId={label.id} userId={userId} />
           )}
         </div>
+<<<<<<< HEAD
       </CardContent>
+=======
+      </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     </Card>
   )
 }

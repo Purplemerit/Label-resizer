@@ -4,7 +4,10 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+<<<<<<< HEAD
 import { Label } from '@/components/ui/label'
+=======
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { validateEmail } from '@/lib/auth/validators'
 import { supabase } from '@/lib/supabase/client'
 
@@ -92,6 +95,7 @@ export default function ResetPasswordPage() {
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
+<<<<<<< HEAD
         <div className="space-y-2">
           <Label htmlFor="email">Email</Label>
           <Input
@@ -110,6 +114,21 @@ export default function ResetPasswordPage() {
             <p className="text-sm text-red-600">{error}</p>
           )}
         </div>
+=======
+        <Input
+          label="Email"
+          type="email"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value)
+            setError(null)
+          }}
+          error={error || undefined}
+          placeholder="you@example.com"
+          required
+          disabled={loading}
+        />
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
         <Button type="submit" variant="primary" className="w-full" loading={loading}>
           Send Reset Link

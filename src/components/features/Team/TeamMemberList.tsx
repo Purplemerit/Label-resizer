@@ -1,10 +1,17 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+<<<<<<< HEAD
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Spinner } from '@/components/ui/Spinner'
 import { Users, UserPlus, Mail, Crown, User, X } from 'lucide-react'
+=======
+import { Card } from '@/components/ui/Card'
+import { Button } from '@/components/ui/button'
+import { Spinner } from '@/components/ui/Spinner'
+import { Users, UserPlus, Mail, Crown, Shield, User, X } from 'lucide-react'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { supabase } from '@/lib/supabase/client'
 import { useToast } from '@/components/ui/Toast'
 import { InviteMemberModal } from './InviteMemberModal'
@@ -166,29 +173,49 @@ export const TeamMemberList: React.FC = () => {
 
       {!canAddMore && (
         <Card className="border-yellow-200 bg-yellow-50">
+<<<<<<< HEAD
           <CardContent>
             <p className="text-sm text-yellow-800">
               You've reached your team member limit. Upgrade to Enterprise for unlimited team members.
             </p>
           </CardContent>
+=======
+          <Card.Body>
+            <p className="text-sm text-yellow-800">
+              You've reached your team member limit. Upgrade to Enterprise for unlimited team members.
+            </p>
+          </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         </Card>
       )}
 
       {/* Team Members List */}
       {members.length === 0 ? (
         <Card>
+<<<<<<< HEAD
           <CardContent className="text-center py-12">
+=======
+          <Card.Body className="text-center py-12">
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
             <Users size={48} className="mx-auto text-gray-400 mb-4" />
             <p className="text-[var(--color-text-secondary)] mb-4">
               No team members yet. Invite your first team member to get started.
             </p>
+<<<<<<< HEAD
           </CardContent>
+=======
+          </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         </Card>
       ) : (
         <div className="space-y-3">
           {members.map((member) => (
             <Card key={member.id}>
+<<<<<<< HEAD
               <CardContent>
+=======
+              <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4 flex-1">
                     <div
@@ -255,7 +282,11 @@ export const TeamMemberList: React.FC = () => {
                     </Button>
                   </div>
                 </div>
+<<<<<<< HEAD
               </CardContent>
+=======
+              </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
             </Card>
           ))}
         </div>

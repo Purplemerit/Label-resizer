@@ -6,7 +6,11 @@ import { createUserClient } from '@/lib/supabase/server'
  * Get a specific template by ID
  */
 export async function GET(
+<<<<<<< HEAD
   _request: NextRequest,
+=======
+  request: NextRequest,
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
@@ -124,7 +128,11 @@ export async function PUT(
  * Delete a template
  */
 export async function DELETE(
+<<<<<<< HEAD
   _request: NextRequest,
+=======
+  request: NextRequest,
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {

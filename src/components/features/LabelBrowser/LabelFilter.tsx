@@ -6,6 +6,10 @@ import { getCategories, getMarketplaces } from '@/lib/constants/labels'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils/cn'
+<<<<<<< HEAD
+=======
+import { X } from 'lucide-react'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
 export interface LabelFilterProps {
   filters: LabelFilters
@@ -84,7 +88,11 @@ export const LabelFilter: React.FC<LabelFilterProps> = ({
 
       {hasActiveFilters && (
         <div className="flex items-center gap-2 flex-wrap">
+<<<<<<< HEAD
           <Badge variant="secondary" className="text-xs">
+=======
+          <Badge variant="info" className="text-xs">
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
             {activeFilterCount} active
           </Badge>
         </div>

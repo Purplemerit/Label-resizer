@@ -5,7 +5,12 @@
 export function getTeamInvitationEmailHtml(
   inviterName: string,
   teamName: string,
+<<<<<<< HEAD
   invitationUrl: string
+=======
+  invitationUrl: string,
+  inviteeEmail: string
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 ): string {
   return `
 <!DOCTYPE html>

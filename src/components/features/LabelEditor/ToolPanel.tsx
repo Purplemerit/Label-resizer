@@ -17,6 +17,10 @@ export interface ToolPanelProps {
 export const ToolPanel: React.FC<ToolPanelProps> = ({ className }) => {
   const { addElement, canvas } = useEditorStore()
   const [placementMode, setPlacementMode] = React.useState<'text' | 'image' | 'barcode' | 'shape' | null>(null)
+<<<<<<< HEAD
+=======
+  const [shapeType, setShapeType] = React.useState<'rectangle' | 'circle' | 'line' | null>(null)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
   // Pass placement mode to Canvas component via a custom event or store
   React.useEffect(() => {

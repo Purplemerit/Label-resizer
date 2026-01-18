@@ -1,7 +1,11 @@
 "use client"
 
 import { useState } from "react"
+<<<<<<< HEAD
 import { Bell, Check, Trash2, AlertCircle, CheckCircle, Info } from "lucide-react"
+=======
+import { Bell, Check, Trash2, Package, AlertCircle, CheckCircle, Info } from "lucide-react"
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"

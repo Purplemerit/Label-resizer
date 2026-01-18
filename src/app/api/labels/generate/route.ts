@@ -60,7 +60,11 @@ export async function POST(request: NextRequest) {
         dpi,
       })
 
+<<<<<<< HEAD
       return new NextResponse(new Uint8Array(pdfBuffer), {
+=======
+      return new NextResponse(pdfBuffer, {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         headers: {
           'Content-Type': 'application/pdf',
           'Content-Disposition': `attachment; filename="label-${Date.now()}.pdf"`,

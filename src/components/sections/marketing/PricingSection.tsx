@@ -1,6 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
+<<<<<<< HEAD
 import { Card, CardContent } from '@/components/ui/card'
+=======
+import { Card } from '@/components/ui/Card'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { Button } from '@/components/ui/button'
 import { Check } from 'lucide-react'
 
@@ -93,9 +97,16 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
           {tiers.map((tier, index) => (
             <Card
               key={index}
+<<<<<<< HEAD
               className={tier.highlighted ? 'ring-2 ring-[var(--color-primary-500)]' : ''}
             >
               <CardContent>
+=======
+              variant={tier.highlighted ? 'elevated' : 'default'}
+              className={tier.highlighted ? 'ring-2 ring-[var(--color-primary-500)]' : ''}
+            >
+              <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold text-[var(--color-text-primary)] mb-2">
                     {tier.name}
@@ -128,7 +139,11 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
                     {tier.cta}
                   </Button>
                 </Link>
+<<<<<<< HEAD
               </CardContent>
+=======
+              </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
             </Card>
           ))}
         </div>

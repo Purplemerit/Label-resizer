@@ -55,7 +55,11 @@ export async function connectPrinter(config: PrinterConfig): Promise<{
           const controller = new AbortController()
           const timeoutId = setTimeout(() => controller.abort(), 5000)
           
+<<<<<<< HEAD
           await fetch(ippUrl, {
+=======
+          const response = await fetch(ippUrl, {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
             method: 'GET',
             mode: 'no-cors',
             signal: controller.signal,
@@ -323,7 +327,11 @@ export async function printLabels(
 export async function sendToNetworkPrinter(
   pdfBuffer: Buffer,
   printerIP: string,
+<<<<<<< HEAD
   _printerName: string
+=======
+  printerName: string
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 ): Promise<{ success: boolean; error?: string }> {
   try {
     // In a production environment, you would:
@@ -340,7 +348,11 @@ export async function sendToNetworkPrinter(
         headers: {
           'Content-Type': 'application/pdf',
         },
+<<<<<<< HEAD
         body: new Uint8Array(pdfBuffer),
+=======
+        body: pdfBuffer,
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       })
 
       if (response.ok) {

@@ -1,7 +1,11 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+<<<<<<< HEAD
 import { Card, CardHeader, CardContent } from '@/components/ui/card'
+=======
+import { Card } from '@/components/ui/card'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Spinner } from '@/components/ui/Spinner'
@@ -122,13 +126,21 @@ export const IntegrationsSettings: React.FC = () => {
             className="cursor-pointer hover:shadow-lg transition-shadow"
             onClick={() => setActiveTab('shopify')}
           >
+<<<<<<< HEAD
             <CardContent className="text-center">
+=======
+            <Card.Body className="text-center">
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
               <Store size={48} className="mx-auto text-green-600 mb-4" />
               <h3 className="font-semibold text-[var(--color-text-primary)] mb-2">Shopify</h3>
               <p className="text-sm text-[var(--color-text-secondary)]">
                 Automatically generate labels when orders are placed
               </p>
+<<<<<<< HEAD
             </CardContent>
+=======
+            </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           </Card>
 
           {/* WooCommerce */}
@@ -136,13 +148,21 @@ export const IntegrationsSettings: React.FC = () => {
             className="cursor-pointer hover:shadow-lg transition-shadow"
             onClick={() => setActiveTab('woocommerce')}
           >
+<<<<<<< HEAD
             <CardContent className="text-center">
+=======
+            <Card.Body className="text-center">
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
               <Store size={48} className="mx-auto text-purple-600 mb-4" />
               <h3 className="font-semibold text-[var(--color-text-primary)] mb-2">WooCommerce</h3>
               <p className="text-sm text-[var(--color-text-secondary)]">
                 Sync orders and generate labels automatically
               </p>
+<<<<<<< HEAD
             </CardContent>
+=======
+            </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           </Card>
 
           {/* Custom Webhook */}
@@ -150,13 +170,21 @@ export const IntegrationsSettings: React.FC = () => {
             className="cursor-pointer hover:shadow-lg transition-shadow"
             onClick={() => setActiveTab('custom')}
           >
+<<<<<<< HEAD
             <CardContent className="text-center">
+=======
+            <Card.Body className="text-center">
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
               <ExternalLink size={48} className="mx-auto text-blue-600 mb-4" />
               <h3 className="font-semibold text-[var(--color-text-primary)] mb-2">Custom Webhook</h3>
               <p className="text-sm text-[var(--color-text-secondary)]">
                 Connect any platform via webhook URL
               </p>
+<<<<<<< HEAD
             </CardContent>
+=======
+            </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           </Card>
         </div>
       </div>
@@ -170,7 +198,11 @@ export const IntegrationsSettings: React.FC = () => {
           <div className="space-y-3">
             {integrations.map((integration) => (
               <Card key={integration.id}>
+<<<<<<< HEAD
                 <CardContent>
+=======
+                <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
                       <div
@@ -207,7 +239,11 @@ export const IntegrationsSettings: React.FC = () => {
                       Disconnect
                     </Button>
                   </div>
+<<<<<<< HEAD
                 </CardContent>
+=======
+                </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
               </Card>
             ))}
           </div>
@@ -217,19 +253,32 @@ export const IntegrationsSettings: React.FC = () => {
       {/* Configuration Forms */}
       {activeTab && (
         <Card>
+<<<<<<< HEAD
           <CardHeader>
             <h3 className="text-lg font-semibold text-[var(--color-text-primary)] capitalize">
               Connect {activeTab}
             </h3>
           </CardHeader>
           <CardContent>
+=======
+          <Card.Header>
+            <h3 className="text-lg font-semibold text-[var(--color-text-primary)] capitalize">
+              Connect {activeTab}
+            </h3>
+          </Card.Header>
+          <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
             {activeTab === 'shopify' && <ShopifyConfigForm onConnect={handleConnect} />}
             {activeTab === 'woocommerce' && <WooCommerceConfigForm onConnect={handleConnect} />}
             {activeTab === 'custom' && <CustomWebhookConfigForm onConnect={handleConnect} />}
             <Button variant="outline" onClick={() => setActiveTab(null)} className="mt-4">
               Cancel
             </Button>
+<<<<<<< HEAD
           </CardContent>
+=======
+          </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         </Card>
       )}
     </div>

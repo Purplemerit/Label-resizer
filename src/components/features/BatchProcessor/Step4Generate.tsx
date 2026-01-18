@@ -1,10 +1,19 @@
 'use client'
 
+<<<<<<< HEAD
 import React, { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Download, CheckCircle2, Clock } from 'lucide-react'
 import { UpgradeModal } from '../UpgradeModal'
 import { ScheduleModal } from './ScheduleModal'
+=======
+import React, { useState, useEffect } from 'react'
+import { Button } from '@/components/ui/button'
+import { Download, CheckCircle2, Clock, Printer } from 'lucide-react'
+import { UpgradeModal } from '../UpgradeModal'
+import { ScheduleModal } from './ScheduleModal'
+import { supabase } from '@/lib/supabase/client'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
 export interface Step4GenerateProps {
   templateId: string
@@ -30,7 +39,11 @@ export const Step4Generate: React.FC<Step4GenerateProps> = ({
   const [upgradeModalOpen, setUpgradeModalOpen] = useState(false)
   const [scheduleModalOpen, setScheduleModalOpen] = useState(false)
   const [upgradePlan, setUpgradePlan] = useState<'pro' | 'enterprise'>('pro')
+<<<<<<< HEAD
   const hasSchedulingAccess = false
+=======
+  const [hasSchedulingAccess, setHasSchedulingAccess] = useState(false)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
   const totalLabels = fileData.length
   const estimatedTime = Math.ceil(totalLabels * 0.12) // ~120ms per label
@@ -283,6 +296,12 @@ export const Step4Generate: React.FC<Step4GenerateProps> = ({
             throw error
           }
         }}
+<<<<<<< HEAD
+=======
+        templateId={templateId}
+        csvData={fileData}
+        columnMapping={columnMapping}
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       />
     </div>
   )

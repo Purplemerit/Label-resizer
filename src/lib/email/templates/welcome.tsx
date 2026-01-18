@@ -2,7 +2,11 @@
  * Welcome email template
  */
 
+<<<<<<< HEAD
 export function getWelcomeEmailHtml(userName?: string): string {
+=======
+export function getWelcomeEmailHtml(userName?: string, userEmail?: string): string {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   return `
 <!DOCTYPE html>
 <html>

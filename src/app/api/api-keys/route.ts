@@ -84,7 +84,11 @@ export async function POST(request: NextRequest) {
  * GET /api/api-keys
  * List all API keys for the current user
  */
+<<<<<<< HEAD
 export async function GET() {
+=======
+export async function GET(request: NextRequest) {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   try {
     const { supabase, session } = await createUserClient()
 

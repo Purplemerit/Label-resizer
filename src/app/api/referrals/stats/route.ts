@@ -5,7 +5,11 @@ import { createUserClient } from '@/lib/supabase/server'
  * GET /api/referrals/stats
  * Get referral statistics for the current user
  */
+<<<<<<< HEAD
 export async function GET(_request: NextRequest) {
+=======
+export async function GET(request: NextRequest) {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   try {
     const { supabase, session } = await createUserClient()
 

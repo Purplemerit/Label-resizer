@@ -1,4 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
+<<<<<<< HEAD
+=======
+import { createHash } from 'crypto'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { createClient } from '@supabase/supabase-js'
 import { generateBatchPDF } from '@/lib/pdf/generator'
 import { authenticateApiKey, checkRateLimit, incrementApiUsage } from '@/lib/api/apiAuth'
@@ -20,11 +24,19 @@ export async function POST(request: NextRequest) {
     }
 
     const authenticatedUser = await authenticateApiKey(apiKey)
+<<<<<<< HEAD
     if (!authenticatedUser.success || !authenticatedUser.userId) {
       return NextResponse.json({ error: 'Invalid API key' }, { status: 401 })
     }
 
     const rateLimitCheck = await checkRateLimit(authenticatedUser.userId)
+=======
+    if (!authenticatedUser) {
+      return NextResponse.json({ error: 'Invalid API key' }, { status: 401 })
+    }
+
+    const rateLimitCheck = await checkRateLimit(authenticatedUser.user_id, apiKey)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     if (!rateLimitCheck.allowed) {
       return NextResponse.json(
         { error: 'Rate limit exceeded' },
@@ -49,7 +61,11 @@ export async function POST(request: NextRequest) {
       .from('templates')
       .select('*, labels(*)')
       .eq('id', template_id)
+<<<<<<< HEAD
       .eq('user_id', authenticatedUser.userId)
+=======
+      .eq('user_id', authenticatedUser.user_id)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       .single()
 
     if (templateError || !template) {
@@ -74,8 +90,13 @@ export async function POST(request: NextRequest) {
     })
 
     // Upload to storage
+<<<<<<< HEAD
     const fileName = `api/${authenticatedUser.userId}/${template_id}_${Date.now()}.pdf`
     const { error: uploadError } = await supabase.storage
+=======
+    const fileName = `api/${authenticatedUser.user_id}/${template_id}_${Date.now()}.pdf`
+    const { data: uploadData, error: uploadError } = await supabase.storage
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       .from('label_outputs')
       .upload(fileName, pdfBuffer, {
         contentType: 'application/pdf',
@@ -98,7 +119,11 @@ export async function POST(request: NextRequest) {
 
     // Record batch job
     await supabase.from('batch_jobs').insert({
+<<<<<<< HEAD
       user_id: authenticatedUser.userId,
+=======
+      user_id: authenticatedUser.user_id,
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       template_id,
       data_rows,
       column_mapping: column_mapping || {},
@@ -109,7 +134,11 @@ export async function POST(request: NextRequest) {
       completed_at: new Date().toISOString(),
     })
 
+<<<<<<< HEAD
     await incrementApiUsage(authenticatedUser.userId)
+=======
+    await incrementApiUsage(authenticatedUser.user_id, apiKey)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
     return NextResponse.json({
       success: true,

@@ -5,9 +5,14 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { supabase } from '@/lib/supabase/client'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+<<<<<<< HEAD
 import { Suspense } from 'react'
 
 function VerifyEmailContent() {
+=======
+
+export default function VerifyEmailPage() {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   const router = useRouter()
   const searchParams = useSearchParams()
   const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading')
@@ -48,6 +53,7 @@ function VerifyEmailContent() {
   }
 
   return (
+<<<<<<< HEAD
     <div className="max-w-md w-full space-y-8 text-center">
       <div>
         <h2 className="text-3xl font-bold">Email Verification</h2>
@@ -82,6 +88,34 @@ export default function VerifyEmailPage() {
       <Suspense fallback={<div>Loading...</div>}>
         <VerifyEmailContent />
       </Suspense>
+=======
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <div className="max-w-md w-full space-y-8 text-center">
+        <div>
+          <h2 className="text-3xl font-bold">Email Verification</h2>
+          <p className="mt-2 text-muted-foreground">{message}</p>
+        </div>
+
+        {status === 'loading' && (
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto" />
+        )}
+
+        {status === 'success' && (
+          <div className="text-green-600 text-5xl">✓</div>
+        )}
+
+        {status === 'error' && (
+          <div className="space-y-4">
+            <Button onClick={resendEmail} className="w-full">
+              Resend Verification Email
+            </Button>
+            <Button variant="outline" asChild className="w-full">
+              <Link href="/login">Back to Login</Link>
+            </Button>
+          </div>
+        )}
+      </div>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     </div>
   )
 }

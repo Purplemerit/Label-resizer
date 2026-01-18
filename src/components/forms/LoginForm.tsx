@@ -1,10 +1,18 @@
 'use client'
 
 import React, { useState } from 'react'
+<<<<<<< HEAD
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Checkbox } from '@/components/ui/checkbox'
+=======
+import { useRouter } from 'next/navigation'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/Input'
+import { Checkbox } from '@/components/ui/Checkbox'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { OAuthButtons } from '@/components/features/Auth/OAuthButtons'
 import { validateEmail } from '@/lib/auth/validators'
 import { supabase } from '@/lib/supabase/client'
@@ -19,6 +27,10 @@ export interface LoginFormProps {
  * Handles email/password authentication
  */
 export const LoginForm: React.FC<LoginFormProps> = ({ redirectTo = '/dashboard', onSuccess }) => {
+<<<<<<< HEAD
+=======
+  const router = useRouter()
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   const [loading, setLoading] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [formData, setFormData] = useState({
@@ -169,7 +181,11 @@ export const LoginForm: React.FC<LoginFormProps> = ({ redirectTo = '/dashboard',
         <Checkbox
           label="Remember me for 90 days"
           checked={formData.rememberMe}
+<<<<<<< HEAD
           onChange={(checked) => handleInputChange('rememberMe', checked)}
+=======
+          onChange={(e) => handleInputChange('rememberMe', e.target.checked)}
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           disabled={loading}
         />
 

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
+=======
+import { Card } from '@/components/ui/Card'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
 export default function ApiDocsPage() {
   return (
@@ -15,12 +19,21 @@ export default function ApiDocsPage() {
       <div className="space-y-6">
         {/* Authentication */}
         <Card>
+<<<<<<< HEAD
           <CardHeader>
             <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
               Authentication
             </h2>
           </CardHeader>
           <CardContent>
+=======
+          <Card.Header>
+            <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
+              Authentication
+            </h2>
+          </Card.Header>
+          <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
             <p className="text-sm text-[var(--color-text-secondary)] mb-4">
               All API requests require an API key. Include it in the request headers:
             </p>
@@ -32,33 +45,59 @@ Authorization: Bearer your_api_key_here`}
             <p className="text-sm text-[var(--color-text-secondary)] mt-4">
               API access is available for Enterprise users only. Generate your API keys in Settings → API.
             </p>
+<<<<<<< HEAD
           </CardContent>
+=======
+          </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         </Card>
 
         {/* Rate Limiting */}
         <Card>
+<<<<<<< HEAD
           <CardHeader>
             <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
               Rate Limiting
             </h2>
           </CardHeader>
           <CardContent>
+=======
+          <Card.Header>
+            <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
+              Rate Limiting
+            </h2>
+          </Card.Header>
+          <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
             <p className="text-sm text-[var(--color-text-secondary)]">
               API requests are limited to <strong>2,000 requests per day</strong> per API key. 
               Rate limits reset at midnight UTC. When exceeded, you'll receive a 429 status code 
               with a <code>Retry-After</code> header.
             </p>
+<<<<<<< HEAD
           </CardContent>
+=======
+          </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         </Card>
 
         {/* List Labels */}
         <Card>
+<<<<<<< HEAD
           <CardHeader>
             <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
               List Labels
             </h2>
           </CardHeader>
           <CardContent>
+=======
+          <Card.Header>
+            <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
+              List Labels
+            </h2>
+          </Card.Header>
+          <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
             <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto text-sm mb-4">
 {`GET /api/v1/labels
 Headers:
@@ -81,17 +120,30 @@ Response:
   }
 }`}
             </pre>
+<<<<<<< HEAD
           </CardContent>
+=======
+          </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         </Card>
 
         {/* List Templates */}
         <Card>
+<<<<<<< HEAD
           <CardHeader>
             <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
               List Templates
             </h2>
           </CardHeader>
           <CardContent>
+=======
+          <Card.Header>
+            <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
+              List Templates
+            </h2>
+          </Card.Header>
+          <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
             <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto text-sm mb-4">
 {`GET /api/v1/templates
 Headers:
@@ -110,17 +162,30 @@ Response:
   ]
 }`}
             </pre>
+<<<<<<< HEAD
           </CardContent>
+=======
+          </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         </Card>
 
         {/* Generate Labels */}
         <Card>
+<<<<<<< HEAD
           <CardHeader>
             <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
               Generate Labels
             </h2>
           </CardHeader>
           <CardContent>
+=======
+          <Card.Header>
+            <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
+              Generate Labels
+            </h2>
+          </Card.Header>
+          <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
             <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto text-sm mb-4">
 {`POST /api/v1/generate
 Headers:
@@ -153,17 +218,30 @@ Response:
             <p className="text-sm text-[var(--color-text-secondary)]">
               The download URL is valid for 1 hour. Download the PDF immediately after generation.
             </p>
+<<<<<<< HEAD
           </CardContent>
+=======
+          </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         </Card>
 
         {/* Get Stats */}
         <Card>
+<<<<<<< HEAD
           <CardHeader>
             <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
               Get Statistics
             </h2>
           </CardHeader>
           <CardContent>
+=======
+          <Card.Header>
+            <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
+              Get Statistics
+            </h2>
+          </Card.Header>
+          <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
             <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto text-sm mb-4">
 {`GET /api/v1/stats
 Headers:
@@ -183,17 +261,30 @@ Response:
   }
 }`}
             </pre>
+<<<<<<< HEAD
           </CardContent>
+=======
+          </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         </Card>
 
         {/* Error Responses */}
         <Card>
+<<<<<<< HEAD
           <CardHeader>
             <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
               Error Responses
             </h2>
           </CardHeader>
           <CardContent>
+=======
+          <Card.Header>
+            <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
+              Error Responses
+            </h2>
+          </Card.Header>
+          <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
             <div className="space-y-4 text-sm">
               <div>
                 <strong className="text-red-600">401 Unauthorized</strong>
@@ -208,7 +299,11 @@ Response:
                 <pre className="bg-gray-100 p-2 rounded mt-1">{`{ "error": "Missing required fields" }`}</pre>
               </div>
             </div>
+<<<<<<< HEAD
           </CardContent>
+=======
+          </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         </Card>
       </div>
     </div>

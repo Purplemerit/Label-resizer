@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 import Link from 'next/link'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Card } from '@/components/ui/card'
+=======
+import React from 'react'
+import Link from 'next/link'
+import { Header } from '@/components/layout/Header'
+import { Footer } from '@/components/layout/Footer'
+import { Card, CardBody } from '@/components/ui/Card'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { format } from 'date-fns'
 import type { Metadata } from 'next'
 
@@ -75,8 +83,13 @@ export default function BlogPage() {
             <div className="space-y-8">
               {blogPosts.map((post) => (
                 <Link key={post.id} href={`/blog/${post.slug}`}>
+<<<<<<< HEAD
                   <Card className="hover:shadow-lg transition-shadow">
                     <div className="p-6">
+=======
+                  <Card variant="elevated" className="hover:shadow-lg transition-shadow">
+                    <CardBody>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                       <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-2">
                         {post.title}
                       </h2>
@@ -85,7 +98,11 @@ export default function BlogPage() {
                         <span>{format(post.date, 'MMMM d, yyyy')}</span>
                         {post.readTime && <span>{post.readTime} min read</span>}
                       </div>
+<<<<<<< HEAD
                     </div>
+=======
+                    </CardBody>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                   </Card>
                 </Link>
               ))}

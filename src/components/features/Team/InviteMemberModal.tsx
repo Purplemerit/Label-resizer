@@ -1,11 +1,19 @@
 'use client'
 
 import React, { useState } from 'react'
+<<<<<<< HEAD
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Mail, User } from 'lucide-react'
 import { useToast } from '@/components/ui/use-toast'
+=======
+import { Dialog } from '@/components/ui/Dialog'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/Input'
+import { Mail, User } from 'lucide-react'
+import { useToast } from '@/components/ui/Toast'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
 export interface InviteMemberModalProps {
   open: boolean
@@ -79,12 +87,17 @@ export const InviteMemberModal: React.FC<InviteMemberModalProps> = ({
   }
 
   return (
+<<<<<<< HEAD
     <Dialog open={open} onOpenChange={(isOpen) => !isOpen && onClose()}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Invite Team Member</DialogTitle>
         </DialogHeader>
         <div className="space-y-6">
+=======
+    <Dialog open={open} onClose={onClose} title="Invite Team Member" size="md">
+      <div className="space-y-6">
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         <div>
           <p className="text-sm text-[var(--color-text-secondary)] mb-4">
             Invite a team member to collaborate on labels. They'll receive an email invitation to join your team.
@@ -140,7 +153,12 @@ export const InviteMemberModal: React.FC<InviteMemberModalProps> = ({
             Send Invitation
           </Button>
         </div>
+<<<<<<< HEAD
       </div>      </DialogContent>    </Dialog>
+=======
+      </div>
+    </Dialog>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   )
 }
 

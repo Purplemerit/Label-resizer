@@ -1,6 +1,9 @@
 import { LoginForm } from "@/components/auth/login-form"
 import Link from "next/link"
+<<<<<<< HEAD
 import { Suspense } from "react"
+=======
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
 export default function LoginPage() {
   return (
@@ -39,9 +42,13 @@ export default function LoginPage() {
             <p className="text-muted-foreground">Enter your credentials to access your account</p>
           </div>
 
+<<<<<<< HEAD
           <Suspense fallback={<div>Loading...</div>}>
             <LoginForm />
           </Suspense>
+=======
+          <LoginForm />
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
           <p className="text-center text-sm text-muted-foreground">
             Don't have an account?{" "}

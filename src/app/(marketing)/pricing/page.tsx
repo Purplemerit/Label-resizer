@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardHeader } from '@/components/ui/card'
+=======
+import React from 'react'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { Card, CardHeader, CardBody } from '@/components/ui/Card'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { Check } from 'lucide-react'
 
 export default function PricingPage() {
@@ -29,7 +36,11 @@ export default function PricingPage() {
                 <span className="text-[var(--color-text-secondary)]">/month</span>
               </div>
             </CardHeader>
+<<<<<<< HEAD
             <div className="p-6">
+=======
+            <CardBody>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start gap-3">
                   <Check size={20} className="text-[var(--color-success-500)] flex-shrink-0 mt-0.5" />
@@ -73,7 +84,11 @@ export default function PricingPage() {
                   Get Started Free
                 </Button>
               </Link>
+<<<<<<< HEAD
             </div>
+=======
+            </CardBody>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           </Card>
 
           {/* Professional Plan */}
@@ -98,7 +113,11 @@ export default function PricingPage() {
                 </p>
               </div>
             </CardHeader>
+<<<<<<< HEAD
             <div className="p-6">
+=======
+            <CardBody>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start gap-3">
                   <Check size={20} className="text-[var(--color-success-500)] flex-shrink-0 mt-0.5" />
@@ -148,7 +167,11 @@ export default function PricingPage() {
                   Get Started
                 </Button>
               </Link>
+<<<<<<< HEAD
             </div>
+=======
+            </CardBody>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           </Card>
 
           {/* Enterprise Plan */}
@@ -168,7 +191,11 @@ export default function PricingPage() {
                 </p>
               </div>
             </CardHeader>
+<<<<<<< HEAD
             <div className="p-6">
+=======
+            <CardBody>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start gap-3">
                   <Check size={20} className="text-[var(--color-success-500)] flex-shrink-0 mt-0.5" />
@@ -218,7 +245,11 @@ export default function PricingPage() {
                   Contact Sales
                 </Button>
               </Link>
+<<<<<<< HEAD
             </div>
+=======
+            </CardBody>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           </Card>
         </div>
 
@@ -247,12 +278,20 @@ export default function PricingPage() {
               },
             ].map((faq, index) => (
               <Card key={index}>
+<<<<<<< HEAD
                 <div className="p-6">
+=======
+                <CardBody>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                   <h3 className="font-semibold text-[var(--color-text-primary)] mb-2">
                     {faq.q}
                   </h3>
                   <p className="text-sm text-[var(--color-text-secondary)]">{faq.a}</p>
+<<<<<<< HEAD
                 </div>
+=======
+                </CardBody>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
               </Card>
             ))}
           </div>

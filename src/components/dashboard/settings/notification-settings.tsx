@@ -58,6 +58,10 @@ const pushNotifications = [
 export function NotificationSettings() {
   const [user, setUser] = useState<any>(null)
   const [settings, setSettings] = useState<any>({})
+<<<<<<< HEAD
+=======
+  const [loading, setLoading] = useState(false)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
   useEffect(() => {
     loadSettings()

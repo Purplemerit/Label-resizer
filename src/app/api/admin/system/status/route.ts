@@ -1,11 +1,19 @@
+<<<<<<< HEAD
 import { NextResponse } from 'next/server'
+=======
+import { NextRequest, NextResponse } from 'next/server'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { createUserClient } from '@/lib/supabase/server'
 
 /**
  * GET /api/admin/system/status
  * Get system health status (admin only)
  */
+<<<<<<< HEAD
 export async function GET() {
+=======
+export async function GET(request: NextRequest) {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   try {
     const { supabase, session } = await createUserClient()
 

@@ -3,8 +3,13 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
+<<<<<<< HEAD
 import { Input } from '@/components/ui/input'
 import { Card } from '@/components/ui/card'
+=======
+import { Input } from '@/components/ui/Input'
+import { Card } from '@/components/ui/Card'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
 export interface PrinterFormData {
   name: string
@@ -94,7 +99,11 @@ export const PrinterForm: React.FC<PrinterFormProps> = ({
 
   return (
     <Card>
+<<<<<<< HEAD
       <div className="p-6">
+=======
+      <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Name */}
           <div>
@@ -108,11 +117,17 @@ export const PrinterForm: React.FC<PrinterFormProps> = ({
                 setFormData({ ...formData, name: e.target.value })
               }
               placeholder="e.g., Warehouse Printer 1"
+<<<<<<< HEAD
               required
             />
             {errors.name && (
               <p className="text-sm text-red-600 mt-1">{errors.name}</p>
             )}
+=======
+              error={errors.name}
+              required
+            />
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           </div>
 
           {/* Printer Type */}
@@ -174,11 +189,17 @@ export const PrinterForm: React.FC<PrinterFormProps> = ({
                   setFormData({ ...formData, network_ip: e.target.value })
                 }
                 placeholder="192.168.1.100"
+<<<<<<< HEAD
                 required
               />
               {errors.network_ip && (
                 <p className="text-sm text-red-600 mt-1">{errors.network_ip}</p>
               )}
+=======
+                error={errors.network_ip}
+                required
+              />
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
             </div>
           )}
 
@@ -286,7 +307,11 @@ export const PrinterForm: React.FC<PrinterFormProps> = ({
             </Button>
           </div>
         </form>
+<<<<<<< HEAD
       </div>
+=======
+      </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     </Card>
   )
 }

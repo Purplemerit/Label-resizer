@@ -8,7 +8,10 @@ import { checkApiRateLimit } from '@/lib/rateLimit/apiRateLimit'
 export interface ApiAuthResult {
   success: boolean
   userId?: string
+<<<<<<< HEAD
   keyId?: string
+=======
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   error?: string
   subscription?: string
 }
@@ -41,7 +44,10 @@ export async function authenticateApiKey(apiKey: string): Promise<ApiAuthResult>
     return {
       success: true,
       userId: apiKeyData.user_id,
+<<<<<<< HEAD
       keyId: apiKeyData.id,
+=======
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       subscription: profile?.subscription_tier || 'free',
     }
   } catch (error) {

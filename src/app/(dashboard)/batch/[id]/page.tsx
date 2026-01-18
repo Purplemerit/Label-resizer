@@ -1,6 +1,10 @@
 import { redirect, notFound } from 'next/navigation'
 import { createUserClient } from '@/lib/supabase/server'
+<<<<<<< HEAD
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+=======
+import { Card } from '@/components/ui/Card'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import Link from 'next/link'
@@ -49,6 +53,7 @@ export default async function BatchDetailPage({ params }: BatchDetailPageProps) 
   }
 
   const getStatusBadge = (status: string) => {
+<<<<<<< HEAD
     const variants: Record<string, 'default' | 'secondary' | 'outline' | 'destructive'> = {
       completed: 'default',
       failed: 'destructive',
@@ -56,6 +61,15 @@ export default async function BatchDetailPage({ params }: BatchDetailPageProps) 
       pending: 'outline',
     }
     return variants[status] || 'outline'
+=======
+    const variants: Record<string, 'success' | 'error' | 'warning' | 'info'> = {
+      completed: 'success',
+      failed: 'error',
+      processing: 'warning',
+      pending: 'info',
+    }
+    return variants[status] || 'info'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   }
 
   const template = batchJob.templates
@@ -103,10 +117,17 @@ export default async function BatchDetailPage({ params }: BatchDetailPageProps) 
         <div className="lg:col-span-2 space-y-6">
           {/* Status Card */}
           <Card>
+<<<<<<< HEAD
             <CardHeader>
               <CardTitle>Job Status</CardTitle>
             </CardHeader>
             <CardContent>
+=======
+            <Card.Header>
+              <h2 className="text-xl font-semibold">Job Status</h2>
+            </Card.Header>
+            <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <span className="text-[var(--color-text-secondary)]">Status</span>
@@ -134,12 +155,17 @@ export default async function BatchDetailPage({ params }: BatchDetailPageProps) 
                   </div>
                 )}
               </div>
+<<<<<<< HEAD
             </CardContent>
+=======
+            </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           </Card>
 
           {/* Error Message */}
           {batchJob.status === 'failed' && batchJob.error_message && (
             <Card>
+<<<<<<< HEAD
               <CardHeader>
                 <CardTitle className="text-[var(--color-error-500)]">Error Details</CardTitle>
               </CardHeader>
@@ -148,23 +174,44 @@ export default async function BatchDetailPage({ params }: BatchDetailPageProps) 
                   <p className="text-red-800">{batchJob.error_message}</p>
                 </div>
               </CardContent>
+=======
+              <Card.Header>
+                <h2 className="text-xl font-semibold text-[var(--color-error-500)]">Error Details</h2>
+              </Card.Header>
+              <Card.Body>
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                  <p className="text-red-800">{batchJob.error_message}</p>
+                </div>
+              </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
             </Card>
           )}
 
           {/* Template Information */}
           {template && typeof template === 'object' && 'name' in template && (
             <Card>
+<<<<<<< HEAD
               <CardHeader>
                 <CardTitle>Template Used</CardTitle>
               </CardHeader>
               <CardContent>
+=======
+              <Card.Header>
+                <h2 className="text-xl font-semibold">Template Used</h2>
+              </Card.Header>
+              <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                 <p className="font-medium">{template.name}</p>
                 {label && typeof label === 'object' && 'name' in label && (
                   <p className="text-sm text-[var(--color-text-secondary)] mt-1">
                     Label: {label.name}
                   </p>
                 )}
+<<<<<<< HEAD
               </CardContent>
+=======
+              </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
             </Card>
           )}
         </div>
@@ -172,10 +219,17 @@ export default async function BatchDetailPage({ params }: BatchDetailPageProps) 
         {/* Sidebar */}
         <div>
           <Card>
+<<<<<<< HEAD
             <CardHeader>
               <CardTitle>Job Details</CardTitle>
             </CardHeader>
             <CardContent>
+=======
+            <Card.Header>
+              <h2 className="text-xl font-semibold">Job Details</h2>
+            </Card.Header>
+            <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
               <div className="space-y-4">
                 <div>
                   <p className="text-sm font-medium text-[var(--color-text-secondary)] mb-1">
@@ -232,7 +286,11 @@ export default async function BatchDetailPage({ params }: BatchDetailPageProps) 
                   </Link>
                 </div>
               )}
+<<<<<<< HEAD
             </CardContent>
+=======
+            </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           </Card>
         </div>
       </div>

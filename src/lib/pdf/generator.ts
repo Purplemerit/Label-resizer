@@ -1,7 +1,11 @@
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib'
 import { EditorElement } from '@/types/editor'
 
+<<<<<<< HEAD
 export interface TemplateData {
+=======
+interface TemplateData {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   id: string
   name: string
   elements: EditorElement[]

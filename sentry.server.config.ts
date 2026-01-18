@@ -13,7 +13,11 @@ if (SENTRY_DSN) {
     dsn: SENTRY_DSN,
     environment: SENTRY_ENVIRONMENT,
     tracesSampleRate: SENTRY_ENVIRONMENT === 'production' ? 0.1 : 1.0,
+<<<<<<< HEAD
     beforeSend(event) {
+=======
+    beforeSend(event, hint) {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       // Filter out development errors
       if (SENTRY_ENVIRONMENT === 'development') {
         return null

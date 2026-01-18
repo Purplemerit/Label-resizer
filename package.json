@@ -11,7 +11,12 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "seed:labels": "tsx scripts/db-seed.ts",
+<<<<<<< HEAD
     "generate-types": "tsx scripts/generate-types.ts"
+=======
+    "generate-types": "tsx scripts/generate-types.ts",
+    "postinstall": "patch-package"
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -45,7 +50,11 @@
     "@sentry/nextjs": "^10.33.0",
     "@supabase/ssr": "^0.8.0",
     "@supabase/supabase-js": "^2.90.1",
+<<<<<<< HEAD
     "@types/pdfkit": "^0.13.9",
+=======
+    "@types/pdfkit": "^0.13.4",
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     "@vercel/analytics": "^1.6.1",
     "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.1",
@@ -60,9 +69,13 @@
     "lucide-react": "^0.454.0",
     "next": "16.0.10",
     "next-themes": "^0.4.6",
+<<<<<<< HEAD
     "patch-package": "^8.0.0",
     "pdf-lib": "^1.17.1",
     "pdfkit": "^0.17.2",
+=======
+    "pdf-lib": "^1.17.1",
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     "react": "19.2.0",
     "react-day-picker": "9.8.0",
     "react-dom": "19.2.0",
@@ -70,20 +83,30 @@
     "react-resizable-panels": "^2.1.7",
     "recharts": "2.15.4",
     "sonner": "^1.7.4",
+<<<<<<< HEAD
     "stream-buffers": "^3.0.3",
     "tailwind-merge": "^3.3.1",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^1.1.2",
     "zod": "3.25.76",
     "zustand": "^5.0.10"
+=======
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss-animate": "^1.0.7",
+    "vaul": "^1.1.2",
+    "zod": "3.25.76"
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.9",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+<<<<<<< HEAD
     "@types/stream-buffers": "^3.0.8",
     "@types/uuid": "^10.0.0",
+=======
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     "postcss": "^8.5",
     "tailwindcss": "^4.1.9",
     "tw-animate-css": "1.3.3",

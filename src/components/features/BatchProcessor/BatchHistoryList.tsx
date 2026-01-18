@@ -4,7 +4,11 @@ import React from 'react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+<<<<<<< HEAD
 import { Download, FileText } from 'lucide-react'
+=======
+import { Download, Calendar, FileText } from 'lucide-react'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { format } from 'date-fns'
 
 export interface BatchJob {
@@ -30,6 +34,7 @@ export const BatchHistoryList: React.FC<BatchHistoryListProps> = ({
   initialBatches,
 }) => {
   const getStatusBadge = (status: string) => {
+<<<<<<< HEAD
     const variants: Record<string, 'default' | 'secondary' | 'outline' | 'destructive'> = {
       completed: 'default',
       failed: 'destructive',
@@ -40,6 +45,18 @@ export const BatchHistoryList: React.FC<BatchHistoryListProps> = ({
   }
 
   const handleDownload = (url: string) => {
+=======
+    const variants: Record<string, 'success' | 'error' | 'warning' | 'info'> = {
+      completed: 'success',
+      failed: 'error',
+      processing: 'warning',
+      pending: 'info',
+    }
+    return variants[status] || 'info'
+  }
+
+  const handleDownload = (url: string, batchId: string) => {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     if (url) {
       window.open(url, '_blank')
     }
@@ -67,7 +84,11 @@ export const BatchHistoryList: React.FC<BatchHistoryListProps> = ({
   return (
     <div className="space-y-4">
       {initialBatches.map((batch) => (
+<<<<<<< HEAD
         <Card key={batch.id}>
+=======
+        <Card key={batch.id} variant="elevated">
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           <CardContent className="p-6">
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1">
@@ -121,7 +142,11 @@ export const BatchHistoryList: React.FC<BatchHistoryListProps> = ({
               {batch.status === 'completed' && batch.output_file_url && (
                 <Button
                   variant="primary"
+<<<<<<< HEAD
                   onClick={() => handleDownload(batch.output_file_url!)}
+=======
+                  onClick={() => handleDownload(batch.output_file_url!, batch.id)}
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                 >
                   <Download size={18} className="mr-2" />
                   Download

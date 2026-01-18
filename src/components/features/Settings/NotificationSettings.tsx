@@ -1,11 +1,17 @@
 'use client'
 
 import React, { useState } from 'react'
+<<<<<<< HEAD
 import { Card, CardHeader, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ProfileData } from './SettingsTabs'
 import { supabase } from '@/lib/supabase/client'
 import { useToast } from '@/components/ui/Toast'
+=======
+import { Card } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { ProfileData } from './SettingsTabs'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
 export interface NotificationSettingsProps {
   initialProfile?: ProfileData | null
@@ -60,12 +66,21 @@ export const NotificationSettings: React.FC<NotificationSettingsProps> = ({
 
   return (
     <Card>
+<<<<<<< HEAD
       <CardHeader>
         <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
           Notification Preferences
         </h2>
       </CardHeader>
       <CardContent>
+=======
+      <Card.Header>
+        <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
+          Notification Preferences
+        </h2>
+      </Card.Header>
+      <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         <div className="space-y-6">
           <div className="space-y-4">
             <div className="flex items-center justify-between">
@@ -189,7 +204,11 @@ export const NotificationSettings: React.FC<NotificationSettingsProps> = ({
             Save Preferences
           </Button>
         </div>
+<<<<<<< HEAD
       </CardContent>
+=======
+      </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     </Card>
   )
 }

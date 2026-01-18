@@ -2,8 +2,12 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createUserClient } from '@/lib/supabase/server'
 import { loadDesign } from '@/server/actions/designs'
 import { generateBatchPDF } from '@/lib/pdf/generator'
+<<<<<<< HEAD
 import { rateLimitAPI, API_RATE_LIMITS } from '@/lib/rateLimit/apiRateLimit'
 import type { PDFStorageResult } from '@/lib/storage/pdfStorage'
+=======
+import { rateLimitAPI, API_RATE_LIMITS, addRateLimitHeaders } from '@/lib/rateLimit/apiRateLimit'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
 /**
  * POST /api/batch
@@ -125,7 +129,11 @@ export async function POST(request: NextRequest) {
     }
 
     // Upload PDF to Supabase Storage
+<<<<<<< HEAD
     let uploadResult: PDFStorageResult = { success: false }
+=======
+    let uploadResult = { success: false, url: undefined, path: undefined }
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     if (batchJob) {
       const { storePDF } = await import('@/lib/storage/pdfStorage')
       uploadResult = await storePDF({
@@ -171,6 +179,7 @@ export async function POST(request: NextRequest) {
 
         if (userProfile?.email && shouldSendEmail) {
           const { sendBatchCompleteEmail } = await import('@/server/actions/email')
+<<<<<<< HEAD
           await sendBatchCompleteEmail({
             email: userProfile.email,
             batchJobName: 'Batch Job',
@@ -178,6 +187,15 @@ export async function POST(request: NextRequest) {
             downloadUrl: uploadResult.url,
             userName: userProfile.full_name || undefined,
           })
+=======
+          await sendBatchCompleteEmail(
+            userProfile.email,
+            'Batch Job',
+            csv_data.length,
+            uploadResult.url,
+            userProfile.full_name || undefined
+          )
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         }
       } catch (emailError) {
         // Don't fail the request if email fails
@@ -210,7 +228,11 @@ export async function POST(request: NextRequest) {
  * GET /api/batch
  * Get user's batch job history
  */
+<<<<<<< HEAD
 export async function GET(_request: NextRequest) {
+=======
+export async function GET(request: NextRequest) {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   try {
     const { supabase, session } = await createUserClient()
 

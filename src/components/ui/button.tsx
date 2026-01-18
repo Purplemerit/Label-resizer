@@ -5,8 +5,13 @@ import { Slot } from '@radix-ui/react-slot'
 import { cn } from '@/lib/utils/cn'
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+<<<<<<< HEAD
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'destructive' | 'default' | 'success' | 'warning' | 'info' | 'error' | 'danger'
   size?: 'sm' | 'md' | 'lg' | 'icon'
+=======
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'destructive'
+  size?: 'sm' | 'md' | 'lg'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   loading?: boolean
   asChild?: boolean
   children: React.ReactNode
@@ -15,7 +20,11 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
+<<<<<<< HEAD
       variant = 'default',
+=======
+      variant = 'primary',
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       size = 'md',
       loading = false,
       asChild = false,
@@ -29,24 +38,33 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-md transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
     
     const variants = {
+<<<<<<< HEAD
       default: 'bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:ring-primary',
+=======
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       primary: 'bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:ring-primary',
       secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80 focus-visible:ring-secondary',
       outline: 'border-2 border-input bg-background hover:bg-accent hover:text-accent-foreground focus-visible:ring-ring',
       ghost: 'hover:bg-accent hover:text-accent-foreground focus-visible:ring-ring',
       destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90 focus-visible:ring-destructive',
+<<<<<<< HEAD
       success: 'bg-green-600 text-white hover:bg-green-700 focus-visible:ring-green-600',
       warning: 'bg-yellow-600 text-white hover:bg-yellow-700 focus-visible:ring-yellow-600',
       info: 'bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-600',
       error: 'bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-600',
       danger: 'bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-600',
+=======
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     }
     
     const sizes = {
       sm: 'h-9 px-4 text-sm',
       md: 'h-10 px-6 text-base',
       lg: 'h-11 px-7 text-lg',
+<<<<<<< HEAD
       icon: 'h-10 w-10',
+=======
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     }
 
     const Comp = asChild ? Slot : 'button'

@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createHash } from 'crypto'
 import { createClient } from '@supabase/supabase-js'
+<<<<<<< HEAD
+=======
+import { createUserClient } from '@/lib/supabase/server'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
@@ -117,7 +121,11 @@ async function authenticateApiKey(apiKey: string): Promise<{ user_id: string; ke
  * Check rate limit for API key
  */
 async function checkRateLimit(
+<<<<<<< HEAD
   _userId: string,
+=======
+  userId: string,
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   apiKey: string
 ): Promise<{ allowed: boolean; retryAfter?: number }> {
   const supabase = createClient(supabaseUrl, supabaseServiceKey)
@@ -164,7 +172,11 @@ async function checkRateLimit(
 /**
  * Increment API usage counter
  */
+<<<<<<< HEAD
 async function incrementApiUsage(_userId: string, apiKey: string) {
+=======
+async function incrementApiUsage(userId: string, apiKey: string) {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   const supabase = createClient(supabaseUrl, supabaseServiceKey)
   const keyHash = createHash('sha256').update(apiKey).digest('hex')
 

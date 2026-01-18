@@ -1,7 +1,11 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+<<<<<<< HEAD
 import { Card, CardHeader, CardContent } from '@/components/ui/card'
+=======
+import { Card } from '@/components/ui/card'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Spinner } from '@/components/ui/Spinner'
@@ -126,7 +130,11 @@ export function ReferralSettings() {
       {stats && (
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <Card>
+<<<<<<< HEAD
             <CardContent>
+=======
+            <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-[var(--color-text-secondary)]">Total Codes</p>
@@ -136,11 +144,19 @@ export function ReferralSettings() {
                 </div>
                 <Gift className="w-8 h-8 text-[var(--color-primary-500)]" />
               </div>
+<<<<<<< HEAD
             </CardContent>
           </Card>
 
           <Card>
             <CardContent>
+=======
+            </Card.Body>
+          </Card>
+
+          <Card>
+            <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-[var(--color-text-secondary)]">Total Referrals</p>
@@ -150,11 +166,19 @@ export function ReferralSettings() {
                 </div>
                 <Users className="w-8 h-8 text-[var(--color-primary-500)]" />
               </div>
+<<<<<<< HEAD
             </CardContent>
           </Card>
 
           <Card>
             <CardContent>
+=======
+            </Card.Body>
+          </Card>
+
+          <Card>
+            <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-[var(--color-text-secondary)]">Rewards Given</p>
@@ -164,11 +188,19 @@ export function ReferralSettings() {
                 </div>
                 <TrendingUp className="w-8 h-8 text-[var(--color-primary-500)]" />
               </div>
+<<<<<<< HEAD
             </CardContent>
           </Card>
 
           <Card>
             <CardContent>
+=======
+            </Card.Body>
+          </Card>
+
+          <Card>
+            <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-[var(--color-text-secondary)]">Your Credits</p>
@@ -178,19 +210,32 @@ export function ReferralSettings() {
                 </div>
                 <Gift className="w-8 h-8 text-[var(--color-success-500)]" />
               </div>
+<<<<<<< HEAD
             </CardContent>
+=======
+            </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           </Card>
         </div>
       )}
 
       {/* Create New Referral */}
       <Card>
+<<<<<<< HEAD
         <CardHeader>
           <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
             Create Referral Code
           </h2>
         </CardHeader>
         <CardContent>
+=======
+        <Card.Header>
+          <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
+            Create Referral Code
+          </h2>
+        </Card.Header>
+        <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           <div className="flex gap-2">
             <Input
               placeholder="Leave empty to auto-generate"
@@ -207,17 +252,30 @@ export function ReferralSettings() {
               Create Code
             </Button>
           </div>
+<<<<<<< HEAD
         </CardContent>
+=======
+        </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       </Card>
 
       {/* Referral Codes List */}
       <Card>
+<<<<<<< HEAD
         <CardHeader>
           <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
             Your Referral Codes
           </h2>
         </CardHeader>
         <CardContent>
+=======
+        <Card.Header>
+          <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
+            Your Referral Codes
+          </h2>
+        </Card.Header>
+        <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           {referrals.length === 0 ? (
             <p className="text-[var(--color-text-secondary)] text-center py-8">
               No referral codes yet. Create one to start referring friends!
@@ -280,7 +338,11 @@ export function ReferralSettings() {
               })}
             </div>
           )}
+<<<<<<< HEAD
         </CardContent>
+=======
+        </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       </Card>
     </div>
   )

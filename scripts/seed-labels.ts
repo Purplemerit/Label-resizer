@@ -330,7 +330,11 @@ async function seedLabels() {
     const batchSize = 50
     for (let i = 0; i < labels.length; i += batchSize) {
       const batch = labels.slice(i, i + batchSize)
+<<<<<<< HEAD
       const { error } = await supabase.from('labels').upsert(batch, { onConflict: 'id' })
+=======
+      const { data, error } = await supabase.from('labels').upsert(batch, { onConflict: 'id' })
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
       if (error) {
         console.error(`Error inserting batch ${i / batchSize + 1}:`, error)

@@ -1,11 +1,19 @@
+<<<<<<< HEAD
 import { NextResponse } from 'next/server'
+=======
+import { NextRequest, NextResponse } from 'next/server'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { createUserClient } from '@/lib/supabase/server'
 
 /**
  * POST /api/auth/refresh
  * Refresh authentication session
  */
+<<<<<<< HEAD
 export async function POST() {
+=======
+export async function POST(request: NextRequest) {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   try {
     const { supabase, session } = await createUserClient()
 

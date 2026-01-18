@@ -6,12 +6,32 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import {
+<<<<<<< HEAD
   Search,
   Plus,
+=======
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu"
+import {
+  Search,
+  Plus,
+  MoreHorizontal,
+  Edit,
+  Copy,
+  Trash2,
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   Star,
   StarOff,
   Grid3X3,
   List,
+<<<<<<< HEAD
+=======
+  Layout,
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   FileText,
   Clock,
 } from "lucide-react"

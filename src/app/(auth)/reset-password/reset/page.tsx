@@ -1,7 +1,12 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+<<<<<<< HEAD
 import { useRouter } from 'next/navigation'
+=======
+import { useRouter, useSearchParams } from 'next/navigation'
+import Link from 'next/link'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -12,6 +17,10 @@ import { Lock } from 'lucide-react'
 
 export default function ResetPasswordConfirmPage() {
   const router = useRouter()
+<<<<<<< HEAD
+=======
+  const searchParams = useSearchParams()
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   const [loading, setLoading] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [formData, setFormData] = useState({
@@ -45,6 +54,7 @@ export default function ResetPasswordConfirmPage() {
     // Validate password strength in real-time
     if (field === 'password') {
       const validation = validatePassword(value)
+<<<<<<< HEAD
       if (validation.valid) {
         // Calculate password strength
         let strength = 0
@@ -56,6 +66,10 @@ export default function ResetPasswordConfirmPage() {
         
         const strengthLevels = ['weak', 'fair', 'good', 'strong', 'very-strong']
         setPasswordStrength(strengthLevels[Math.min(strength - 1, 4)] as any)
+=======
+      if (validation.valid && validation.strength) {
+        setPasswordStrength(validation.strength)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       } else {
         setPasswordStrength(null)
       }

@@ -1,4 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
+<<<<<<< HEAD
+=======
+import { createServerClient } from '@/lib/supabase/server'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
 /**
  * POST /api/webhooks/supabase

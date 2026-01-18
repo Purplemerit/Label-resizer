@@ -1,7 +1,11 @@
 'use client'
 
 import React, { useState } from 'react'
+<<<<<<< HEAD
 import { Card, CardHeader, CardContent } from '@/components/ui/card'
+=======
+import { Card } from '@/components/ui/card'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useRouter } from 'next/navigation'
@@ -159,12 +163,21 @@ export const AccountSettings: React.FC<AccountSettingsProps> = ({
     <div className="space-y-6">
       {/* Profile Information */}
       <Card>
+<<<<<<< HEAD
         <CardHeader>
           <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
             Profile Information
           </h2>
         </CardHeader>
         <CardContent>
+=======
+        <Card.Header>
+          <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
+            Profile Information
+          </h2>
+        </Card.Header>
+        <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-[var(--color-text-primary)] mb-2">
@@ -225,17 +238,30 @@ export const AccountSettings: React.FC<AccountSettingsProps> = ({
               Save Changes
             </Button>
           </form>
+<<<<<<< HEAD
         </CardContent>
+=======
+        </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       </Card>
 
       {/* Change Password */}
       <Card>
+<<<<<<< HEAD
         <CardHeader>
           <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
             Change Password
           </h2>
         </CardHeader>
         <CardContent>
+=======
+        <Card.Header>
+          <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
+            Change Password
+          </h2>
+        </Card.Header>
+        <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           <form
             onSubmit={async (e) => {
               e.preventDefault()
@@ -250,15 +276,26 @@ export const AccountSettings: React.FC<AccountSettingsProps> = ({
               Change Password
             </Button>
           </form>
+<<<<<<< HEAD
         </CardContent>
+=======
+        </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       </Card>
 
       {/* Data Export (GDPR) */}
       <Card>
+<<<<<<< HEAD
         <CardHeader>
           <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">Data Export</h2>
         </CardHeader>
         <CardContent>
+=======
+        <Card.Header>
+          <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">Data Export</h2>
+        </Card.Header>
+        <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           <div className="space-y-4">
             <div>
               <h3 className="font-medium text-[var(--color-text-primary)] mb-2">
@@ -272,15 +309,26 @@ export const AccountSettings: React.FC<AccountSettingsProps> = ({
               </Button>
             </div>
           </div>
+<<<<<<< HEAD
         </CardContent>
+=======
+        </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       </Card>
 
       {/* Danger Zone */}
       <Card className="border-red-200">
+<<<<<<< HEAD
         <CardHeader>
           <h2 className="text-xl font-semibold text-red-600">Danger Zone</h2>
         </CardHeader>
         <CardContent>
+=======
+        <Card.Header>
+          <h2 className="text-xl font-semibold text-red-600">Danger Zone</h2>
+        </Card.Header>
+        <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           <div className="space-y-4">
             <div>
               <h3 className="font-medium text-[var(--color-text-primary)] mb-2">
@@ -294,7 +342,11 @@ export const AccountSettings: React.FC<AccountSettingsProps> = ({
               </Button>
             </div>
           </div>
+<<<<<<< HEAD
         </CardContent>
+=======
+        </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       </Card>
     </div>
   )

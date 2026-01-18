@@ -74,12 +74,20 @@ export async function refreshSession(): Promise<Session | null> {
     error,
   } = await supabase.auth.refreshSession()
   
+<<<<<<< HEAD
   if (error || !session) {
+=======
+  if (error) {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     console.error('Refresh session error:', error)
     return null
   }
   
+<<<<<<< HEAD
   return session
+=======
+  return session.session
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 }
 
 /**

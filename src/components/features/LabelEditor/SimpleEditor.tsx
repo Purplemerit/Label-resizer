@@ -4,7 +4,11 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+<<<<<<< HEAD
 import { Layers, Type, Maximize2, Save } from 'lucide-react'
+=======
+import { Layers, Type, Image as ImageIcon, Maximize2, Save } from 'lucide-react'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
 interface Element {
   id: string

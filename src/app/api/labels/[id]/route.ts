@@ -12,7 +12,11 @@ interface RouteParams {
  * GET /api/labels/[id]
  * Fetch a specific label design by ID
  */
+<<<<<<< HEAD
 export async function GET(_request: NextRequest, { params }: RouteParams) {
+=======
+export async function GET(request: NextRequest, { params }: RouteParams) {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   try {
     const { id } = await params
     const { session } = await createUserClient()
@@ -91,7 +95,11 @@ export async function PUT(request: NextRequest, { params }: RouteParams) {
  * DELETE /api/labels/[id]
  * Delete a label design
  */
+<<<<<<< HEAD
 export async function DELETE(_request: NextRequest, { params }: RouteParams) {
+=======
+export async function DELETE(request: NextRequest, { params }: RouteParams) {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   try {
     const { id } = await params
     const { session } = await createUserClient()

@@ -82,7 +82,11 @@ export async function POST(request: NextRequest) {
  * GET /api/printers
  * Get user's printers
  */
+<<<<<<< HEAD
 export async function GET(_request: NextRequest) {
+=======
+export async function GET(request: NextRequest) {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   try {
     const { supabase, session } = await createUserClient()
 

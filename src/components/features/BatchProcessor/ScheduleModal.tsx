@@ -8,6 +8,12 @@ export interface ScheduleModalProps {
   open: boolean
   onClose: () => void
   onSchedule: (scheduledFor: Date) => Promise<void>
+<<<<<<< HEAD
+=======
+  templateId: string
+  csvData: any[]
+  columnMapping: Record<string, string>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 }
 
 /**
@@ -17,6 +23,12 @@ export const ScheduleModal: React.FC<ScheduleModalProps> = ({
   open,
   onClose,
   onSchedule,
+<<<<<<< HEAD
+=======
+  templateId,
+  csvData,
+  columnMapping,
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 }) => {
   const [loading, setLoading] = useState(false)
   const [date, setDate] = useState('')

@@ -4,9 +4,16 @@ import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
+<<<<<<< HEAD
 import { Input } from '@/components/ui/input'
 import { Checkbox } from '@/components/ui/checkbox'
 import { OAuthButtons } from '@/components/features/Auth/OAuthButtons'
+=======
+import { Input } from '@/components/ui/Input'
+import { Checkbox } from '@/components/ui/Checkbox'
+import { OAuthButtons } from '@/components/features/Auth/OAuthButtons'
+import { cn } from '@/lib/utils/cn'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import {
   validateEmail,
   validatePassword,
@@ -40,6 +47,12 @@ export const SignupForm: React.FC<SignupFormProps> = ({
     companyName: '',
     acceptTerms: false,
   })
+<<<<<<< HEAD
+=======
+  const [passwordStrength, setPasswordStrength] = useState<'weak' | 'medium' | 'strong' | null>(
+    null
+  )
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
   // Get referral code from URL if not provided as prop
   const [referralCode, setReferralCode] = useState<string | null>(initialReferralCode || null)
@@ -65,6 +78,7 @@ export const SignupForm: React.FC<SignupFormProps> = ({
       })
     }
 
+<<<<<<< HEAD
     // Validate password in real-time
     if (field === 'password' && typeof value === 'string') {
       const validation = validatePassword(value)
@@ -75,6 +89,15 @@ export const SignupForm: React.FC<SignupFormProps> = ({
           const { password, ...rest } = prev
           return rest
         })
+=======
+    // Validate password strength in real-time
+    if (field === 'password' && typeof value === 'string') {
+      const validation = validatePassword(value)
+      if (validation.valid && validation.strength) {
+        setPasswordStrength(validation.strength)
+      } else {
+        setPasswordStrength(null)
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       }
     }
   }
@@ -193,6 +216,22 @@ export const SignupForm: React.FC<SignupFormProps> = ({
     }
   }
 
+<<<<<<< HEAD
+=======
+  const getPasswordStrengthColor = () => {
+    switch (passwordStrength) {
+      case 'weak':
+        return 'bg-red-500'
+      case 'medium':
+        return 'bg-yellow-500'
+      case 'strong':
+        return 'bg-green-500'
+      default:
+        return 'bg-gray-200'
+    }
+  }
+
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   return (
     <div>
       <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-2">
@@ -265,6 +304,31 @@ export const SignupForm: React.FC<SignupFormProps> = ({
             required
             disabled={loading}
           />
+<<<<<<< HEAD
+=======
+          {passwordStrength && (
+            <div className="mt-2">
+              <div className="flex items-center gap-2">
+                <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+                  <div
+                    className={cn('h-full transition-all', getPasswordStrengthColor())}
+                    style={{
+                      width:
+                        passwordStrength === 'weak'
+                          ? '33%'
+                          : passwordStrength === 'medium'
+                            ? '66%'
+                            : '100%',
+                    }}
+                  />
+                </div>
+                <span className="text-xs text-[var(--color-text-secondary)] capitalize">
+                  {passwordStrength}
+                </span>
+              </div>
+            </div>
+          )}
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
         </div>
 
         {/* Terms Acceptance */}
@@ -282,7 +346,12 @@ export const SignupForm: React.FC<SignupFormProps> = ({
             </>
           }
           checked={formData.acceptTerms}
+<<<<<<< HEAD
           onChange={(checked) => handleInputChange('acceptTerms', checked)}
+=======
+          onChange={(e) => handleInputChange('acceptTerms', e.target.checked)}
+          error={errors.acceptTerms}
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           disabled={loading}
         />
 

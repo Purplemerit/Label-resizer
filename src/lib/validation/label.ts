@@ -1,5 +1,9 @@
 import { z } from 'zod'
+<<<<<<< HEAD
 import { labelBaseSchema } from './schemas'
+=======
+import { labelBaseSchema, labelDimensionsSchema } from './schemas'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
 /**
  * Label-specific validation utilities

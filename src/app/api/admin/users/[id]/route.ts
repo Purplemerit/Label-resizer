@@ -66,7 +66,11 @@ export async function PATCH(
  * Delete user (admin only)
  */
 export async function DELETE(
+<<<<<<< HEAD
   _request: NextRequest,
+=======
+  request: NextRequest,
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {

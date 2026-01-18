@@ -1,6 +1,10 @@
 import { redirect } from 'next/navigation'
 import { createUserClient } from '@/lib/supabase/server'
+<<<<<<< HEAD
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+=======
+import { Card } from '@/components/ui/Card'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import Link from 'next/link'
@@ -72,12 +76,20 @@ export default async function TemplatePage({ params }: TemplatePageProps) {
                 {template.name}
               </h1>
               {template.is_public && (
+<<<<<<< HEAD
                 <Badge variant="default" className="text-xs">
+=======
+                <Badge variant="success" className="text-xs">
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                   Public
                 </Badge>
               )}
               {!template.is_public && isOwner && (
+<<<<<<< HEAD
                 <Badge variant="secondary" className="text-xs">
+=======
+                <Badge variant="info" className="text-xs">
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                   Private
                 </Badge>
               )}
@@ -121,10 +133,17 @@ export default async function TemplatePage({ params }: TemplatePageProps) {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2">
           <Card>
+<<<<<<< HEAD
             <CardHeader>
               <CardTitle>Template Preview</CardTitle>
             </CardHeader>
             <CardContent>
+=======
+            <Card.Header>
+              <h2 className="text-xl font-semibold">Template Preview</h2>
+            </Card.Header>
+            <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
               {label && typeof label === 'object' && 'name' in label && (
                 <div className="mb-4">
                   <p className="text-sm text-[var(--color-text-secondary)] mb-1">Label Type</p>
@@ -139,16 +158,27 @@ export default async function TemplatePage({ params }: TemplatePageProps) {
               <div className="bg-gray-50 rounded-lg p-8 flex items-center justify-center min-h-[400px]">
                 <p className="text-[var(--color-text-secondary)]">Template preview coming soon</p>
               </div>
+<<<<<<< HEAD
             </CardContent>
+=======
+            </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           </Card>
         </div>
 
         <div>
           <Card>
+<<<<<<< HEAD
             <CardHeader>
               <CardTitle>Template Details</CardTitle>
             </CardHeader>
             <CardContent>
+=======
+            <Card.Header>
+              <h2 className="text-xl font-semibold">Template Details</h2>
+            </Card.Header>
+            <Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
               <div className="space-y-4">
                 <div>
                   <p className="text-sm font-medium text-[var(--color-text-secondary)] mb-1">
@@ -160,7 +190,11 @@ export default async function TemplatePage({ params }: TemplatePageProps) {
                   <p className="text-sm font-medium text-[var(--color-text-secondary)] mb-1">
                     Status
                   </p>
+<<<<<<< HEAD
                   <Badge variant={template.is_public ? 'default' : 'secondary'}>
+=======
+                  <Badge variant={template.is_public ? 'success' : 'info'}>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
                     {template.is_public ? 'Public' : 'Private'}
                   </Badge>
                 </div>
@@ -199,7 +233,11 @@ export default async function TemplatePage({ params }: TemplatePageProps) {
                   </Button>
                 </Link>
               </div>
+<<<<<<< HEAD
             </CardContent>
+=======
+            </Card.Body>
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
           </Card>
         </div>
       </div>

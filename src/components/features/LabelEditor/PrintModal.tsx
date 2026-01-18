@@ -1,9 +1,15 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+<<<<<<< HEAD
 import { Dialog } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+=======
+import { Dialog } from '@/components/ui/Dialog'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/Input'
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 import { Spinner } from '@/components/ui/Spinner'
 import { Printer } from 'lucide-react'
 import { supabase } from '@/lib/supabase/client'
@@ -120,7 +126,11 @@ export const PrintModal: React.FC<PrintModalProps> = ({
   }
 
   return (
+<<<<<<< HEAD
     <Dialog open={open} onOpenChange={(isOpen) => !isOpen && onClose()}>
+=======
+    <Dialog open={open} onClose={onClose} title="Print Labels" size="md">
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       <div className="space-y-6">
         {/* Printer Selection */}
         <div>

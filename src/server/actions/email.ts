@@ -70,7 +70,11 @@ export async function sendWelcomeEmail(
     const result = await sendEmail({
       to: email,
       subject: 'Welcome to LabelPro! 🎉',
+<<<<<<< HEAD
       html: getWelcomeEmailHtml(userName),
+=======
+      html: getWelcomeEmailHtml(userName, email),
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       text: getWelcomeEmailText(userName),
     })
 
@@ -86,6 +90,7 @@ export async function sendWelcomeEmail(
 /**
  * Send batch job completion email
  */
+<<<<<<< HEAD
 export async function sendBatchCompleteEmail({
   email,
   batchJobName,
@@ -99,6 +104,15 @@ export async function sendBatchCompleteEmail({
   downloadUrl: string
   userName?: string
 }): Promise<{ success: boolean; error?: string }> {
+=======
+export async function sendBatchCompleteEmail(
+  email: string,
+  batchJobName: string,
+  totalLabels: number,
+  downloadUrl: string,
+  userName?: string
+): Promise<{ success: boolean; error?: string }> {
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   try {
     const result = await sendEmail({
       to: email,
@@ -129,7 +143,11 @@ export async function sendTeamInvitationEmail(
     const result = await sendEmail({
       to: email,
       subject: `${inviterName} invited you to join their team on LabelPro`,
+<<<<<<< HEAD
       html: getTeamInvitationEmailHtml(inviterName, teamName, invitationUrl),
+=======
+      html: getTeamInvitationEmailHtml(inviterName, teamName, invitationUrl, email),
+>>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
       text: getTeamInvitationEmailText(inviterName, teamName, invitationUrl),
     })
 
