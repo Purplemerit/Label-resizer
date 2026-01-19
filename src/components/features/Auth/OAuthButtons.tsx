@@ -3,11 +3,7 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import { supabase } from '@/lib/supabase/client'
-<<<<<<< HEAD
-import { Chrome } from 'lucide-react'
-=======
 import { Chrome, ShoppingBag } from 'lucide-react'
->>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
 
 export interface OAuthButtonsProps {
   redirectTo?: string
@@ -40,14 +36,12 @@ export const OAuthButtons: React.FC<OAuthButtonsProps> = ({
     }
   }
 
-<<<<<<< HEAD
-=======
   const handleAmazonAuth = async () => {
     try {
       // Note: Amazon OAuth requires special setup in Supabase
       // This is a placeholder - you'll need to configure Amazon as a provider
       const { error } = await supabase.auth.signInWithOAuth({
-        provider: 'amazon',
+        provider: 'amazon' as any,
         options: {
           redirectTo: `${window.location.origin}/auth/callback?redirect=${encodeURIComponent(redirectTo)}`,
         },
@@ -63,7 +57,6 @@ export const OAuthButtons: React.FC<OAuthButtonsProps> = ({
     }
   }
 
->>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
   return (
     <div className={`space-y-3 ${className}`}>
       <Button
@@ -74,8 +67,6 @@ export const OAuthButtons: React.FC<OAuthButtonsProps> = ({
         <Chrome size={18} className="mr-2" />
         Continue with Google
       </Button>
-<<<<<<< HEAD
-=======
       <Button
         variant="outline"
         className="w-full"
@@ -84,10 +75,8 @@ export const OAuthButtons: React.FC<OAuthButtonsProps> = ({
         <ShoppingBag size={18} className="mr-2" />
         Continue with Amazon
       </Button>
->>>>>>> 041cd02113280a42c8dc19711e1ef7bc18db31dc
     </div>
   )
 }
 
 export default OAuthButtons
-
