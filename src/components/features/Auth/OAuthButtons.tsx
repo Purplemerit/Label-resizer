@@ -17,19 +17,12 @@ export const OAuthButtons: React.FC<OAuthButtonsProps> = ({
   redirectTo = '/dashboard',
   className,
 }) => {
-  const getRedirectUrl = () => {
-    const baseUrl = process.env.NODE_ENV === 'production' 
-      ? 'https://laravel-resizer-pro.vercel.app'
-      : 'http://localhost:3000'
-    return `${baseUrl}/auth/callback?redirect=${encodeURIComponent(redirectTo)}`
-  }
-
   const handleGoogleAuth = async () => {
     try {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: getRedirectUrl(),
+          redirectTo: `${window.location.origin}/auth/callback`,
         },
       })
 
@@ -48,7 +41,7 @@ export const OAuthButtons: React.FC<OAuthButtonsProps> = ({
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'github',
         options: {
-          redirectTo: getRedirectUrl(),
+          redirectTo: `${window.location.origin}/auth/callback`,
         },
       })
 
