@@ -14,7 +14,6 @@ export interface OAuthButtonsProps {
  * OAuth authentication buttons (Google, GitHub)
  */
 export const OAuthButtons: React.FC<OAuthButtonsProps> = ({
-  redirectTo = '/dashboard',
   className,
 }) => {
   const handleGoogleAuth = async () => {
