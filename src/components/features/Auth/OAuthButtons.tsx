@@ -3,7 +3,7 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import { supabase } from '@/lib/supabase/client'
-import { Chrome } from 'lucide-react'
+import { Chrome, Github } from 'lucide-react'
 
 export interface OAuthButtonsProps {
   redirectTo?: string
@@ -11,18 +11,25 @@ export interface OAuthButtonsProps {
 }
 
 /**
- * OAuth authentication buttons (Google, Amazon)
+ * OAuth authentication buttons (Google, GitHub)
  */
 export const OAuthButtons: React.FC<OAuthButtonsProps> = ({
   redirectTo = '/dashboard',
   className,
 }) => {
+  const getRedirectUrl = () => {
+    const baseUrl = process.env.NODE_ENV === 'production' 
+      ? 'https://laravel-resizer-pro.vercel.app'
+      : 'http://localhost:3000'
+    return `${baseUrl}/auth/callback?redirect=${encodeURIComponent(redirectTo)}`
+  }
+
   const handleGoogleAuth = async () => {
     try {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: `${window.location.origin}/auth/callback?redirect=${encodeURIComponent(redirectTo)}`,
+          redirectTo: getRedirectUrl(),
         },
       })
 
@@ -36,6 +43,25 @@ export const OAuthButtons: React.FC<OAuthButtonsProps> = ({
     }
   }
 
+  const handleGitHubAuth = async () => {
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'github',
+        options: {
+          redirectTo: getRedirectUrl(),
+        },
+      })
+
+      if (error) {
+        console.error('GitHub OAuth error:', error)
+        alert('Failed to sign in with GitHub. Please try again.')
+      }
+    } catch (error) {
+      console.error('GitHub OAuth error:', error)
+      alert('An error occurred. Please try again.')
+    }
+  }
+
   return (
     <div className={`space-y-3 ${className}`}>
       <Button
@@ -45,6 +71,15 @@ export const OAuthButtons: React.FC<OAuthButtonsProps> = ({
       >
         <Chrome size={18} className="mr-2" />
         Continue with Google
+      </Button>
+      
+      <Button
+        variant="outline"
+        className="w-full"
+        onClick={handleGitHubAuth}
+      >
+        <Github size={18} className="mr-2" />
+        Continue with GitHub
       </Button>
     </div>
   )
